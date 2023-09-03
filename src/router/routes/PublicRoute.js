@@ -18,10 +18,10 @@ const publicRoutes = [
     path: "/register",
     element: <Register />,
   },
-  // {
-  //   path: "/admin/login",
-  //   element: <AdminLogin />,
-  // },
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
+  },
   // {
   //   path: "/unauthorized",
   //   element: <UnAuthorized />,
