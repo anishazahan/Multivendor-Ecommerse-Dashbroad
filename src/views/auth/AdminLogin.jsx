@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { AiOutlineGooglePlus, AiOutlineGithub } from "react-icons/ai";
-import { FiFacebook } from "react-icons/fi";
-import { CiTwitter } from "react-icons/ci";
+import { admin_login } from "../../Store/Reducers/authReducer";
 import { PropagateLoader } from "react-spinners";
-// import { useDispatch, useSelector } from "react-redux";
-// import { overrideStyle } from "../../utils/utils";
-// import {
-//   messageClear,
-//   seller_register,
-// } from "../../store/Reducers/authReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { overrideStyle } from "../../utils/utils";
+
+import {
+  messageClear,
+  // seller_register,
+} from "../../Store/Reducers/authReducer.js";
 
 const AdminLogin = () => {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const { loader, errorMessage, successMessage } = useSelector(
-  //   (state) => state.auth
-  // );
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loader, errorMessage, successMessage } = useSelector(
+    (state) => state.auth
+  );
   const [state, setSatate] = useState({
     email: "",
     password: "",
@@ -30,20 +29,19 @@ const AdminLogin = () => {
   };
   const submit = (e) => {
     e.preventDefault();
-    console.log(state);
-    // dispatch(seller_register(state));
+    dispatch(admin_login(state));
   };
-  // useEffect(() => {
-  //   if (successMessage) {
-  //     toast.success(successMessage);
-  //     dispatch(messageClear());
-  //     navigate("/");
-  //   }
-  //   if (errorMessage) {
-  //     toast.error(errorMessage);
-  //     dispatch(messageClear());
-  //   }
-  // }, [successMessage, errorMessage]);
+  useEffect(() => {
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+      navigate("/");
+    }
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
+  }, [successMessage, errorMessage]);
   return (
     <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center p-4">
       <div className=" md:w-[80%] w-full lg:w-[550px] border rounded-md text-stone-900 p-2">
@@ -86,15 +84,14 @@ const AdminLogin = () => {
             </div>
 
             <button
-              // disabled={loader ? true : false}
+              disabled={loader ? true : false}
               className="bg-primary w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3"
             >
-              {/* {loader ? (
+              {loader ? (
                 <PropagateLoader color="#fff" cssOverride={overrideStyle} />
               ) : (
                 "Signup"
-              )} */}
-              Login
+              )}
             </button>
           </form>
         </div>
