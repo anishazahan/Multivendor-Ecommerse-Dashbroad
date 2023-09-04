@@ -6,7 +6,7 @@ const AdminDashbroad = lazy(() =>
 
 export const adminRoutes = [
   {
-    path: "admin/dashbroad",
+    path: "/admin/dashboard",
     element: <AdminDashbroad />,
     role: "admin",
   },
