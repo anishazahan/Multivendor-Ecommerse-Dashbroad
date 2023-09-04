@@ -1,13 +1,13 @@
 import { lazy } from "react";
 
-const AdminDashbroad = lazy(() =>
-  import("../../views/pages/admin/AdminDashbroad")
+const AdminDashboard = lazy(() =>
+  import("../../views/pages/admin/AdminDashboard")
 );
 
 export const adminRoutes = [
   {
     path: "/admin/dashboard",
-    element: <AdminDashbroad />,
+    element: <AdminDashboard />,
     role: "admin",
   },
 ];
