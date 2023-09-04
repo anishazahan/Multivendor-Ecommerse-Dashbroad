@@ -6,95 +6,95 @@ import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Chart from "react-apexcharts";
 const AdminDashboard = () => {
-  // const state = {
-  //   series: [
-  //     {
-  //       name: "Orders",
-  //       data: [34, 65, 34, 65, 34, 34, 34, 56, 23, 67, 23, 45],
-  //     },
-  //     {
-  //       name: "Revenue",
-  //       data: [34, 32, 45, 32, 34, 34, 43, 56, 65, 67, 45, 78],
-  //     },
-  //     {
-  //       name: "Sellers",
-  //       data: [78, 32, 34, 54, 65, 34, 54, 21, 54, 43, 45, 43],
-  //     },
-  //   ],
-  //   options: {
-  //     color: ["#181ee8", "#181ee8"],
-  //     plotOptions: {
-  //       radius: 30,
-  //     },
-  //     chart: {
-  //       background: "transparent",
-  //       foreColor: "#d0d2d6",
-  //     },
-  //     dataLabels: {
-  //       enabled: false,
-  //     },
-  //     stroke: {
-  //       show: true,
-  //       curve: ["smooth", "straight", "stepline"],
-  //       lineCap: "butt",
-  //       colors: "#f0f0f0",
-  //       width: 0.5,
-  //       dashArray: 0,
-  //     },
-  //     xaxis: {
-  //       categories: [
-  //         "Jan",
-  //         "Feb",
-  //         "Mar",
-  //         "Apl",
-  //         "May",
-  //         "Jun",
-  //         "Jul",
-  //         "Aug",
-  //         "Sep",
-  //         "Oct",
-  //         "Nov",
-  //         "Dec",
-  //       ],
-  //     },
-  //     legend: {
-  //       position: "top",
-  //     },
-  //     responsive: [
-  //       {
-  //         breakpoint: 565,
-  //         yaxis: {
-  //           categories: [
-  //             "Jan",
-  //             "Feb",
-  //             "Mar",
-  //             "Apl",
-  //             "May",
-  //             "Jun",
-  //             "Jul",
-  //             "Aug",
-  //             "Sep",
-  //             "Oct",
-  //             "Nov",
-  //             "Dec",
-  //           ],
-  //         },
-  //         options: {
-  //           plotOptions: {
-  //             bar: {
-  //               horizontal: true,
-  //             },
-  //           },
-  //           chart: {
-  //             height: "550px",
-  //           },
-  //         },
-  //       },
-  //     ],
-  //   },
-  // };
+  const state = {
+    series: [
+      {
+        name: "Orders",
+        data: [34, 65, 34, 65, 34, 34, 34, 56, 23, 67, 23, 45],
+      },
+      {
+        name: "Revenue",
+        data: [34, 32, 45, 32, 34, 34, 43, 56, 65, 67, 45, 78],
+      },
+      {
+        name: "Sellers",
+        data: [78, 32, 34, 54, 65, 34, 54, 21, 54, 43, 45, 43],
+      },
+    ],
+    options: {
+      color: ["#0f766e", "#57534e"],
+      plotOptions: {
+        radius: 30,
+      },
+      chart: {
+        background: "transparent",
+        foreColor: "rgba(0,0,0,0.7)",
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        show: true,
+        curve: ["smooth", "straight", "stepline"],
+        lineCap: "butt",
+        colors: "rgba(0,0,0,0.7)",
+        width: 0.5,
+        dashArray: 0,
+      },
+      xaxis: {
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apl",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ],
+      },
+      legend: {
+        position: "top",
+      },
+      responsive: [
+        {
+          breakpoint: 565,
+          yaxis: {
+            categories: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apl",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ],
+          },
+          options: {
+            plotOptions: {
+              bar: {
+                horizontal: true,
+              },
+            },
+            chart: {
+              height: "550px",
+            },
+          },
+        },
+      ],
+    },
+  };
   return (
-    <div className="px-2 md:px-7 lg:px-5 pb-3">
+    <div className="px-2 md:px-5 pb-3">
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div className="flex justify-between items-center p-5 bg-white shadow rounded-md gap-3">
           <div className="flex flex-col justify-start items-start text-gray-900">
@@ -137,14 +137,14 @@ const AdminDashboard = () => {
       </div>
       <div className="w-full flex flex-wrap mt-7">
         <div className="w-full lg:w-7/12 lg:pr-3">
-          {/* <div className="w-full bg-[#283046] p-4 rounded-md">
+          <div className="w-full bg-white shadow px-4 pt-4 pb-6 rounded-md">
             <Chart
               options={state.options}
               series={state.series}
               type="bar"
               height={350}
             />
-          </div> */}
+          </div>
         </div>
         <div className="w-full lg:w-5/12 lg:pl-4 mt-6 lg:mt-0">
           <div className="w-full bg-white p-4 shadow rounded-md text-gray-800">
@@ -223,7 +223,7 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
-      <div className="w-full p-4  bg-white rounded-md mt-6">
+      <div className="w-full p-4  bg-white rounded-md shadow mt-6">
         <div className="flex justify-between items-center">
           <h2 className="font-semibold text-lg text-gray-900 pb-3">
             Recent Orders
