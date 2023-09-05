@@ -183,7 +183,7 @@ const AddProduct = () => {
                   id="category"
                 />
                 <div
-                  className={`absolute top-[101%] bg-slate-200 w-full transition-all ${
+                  className={`absolute top-[101%] bg-slate-100 border w-full transition-all ${
                     cateShow ? "scale-100" : "scale-0"
                   }`}
                 >
@@ -191,7 +191,7 @@ const AddProduct = () => {
                     <input
                       value={searchValue}
                       //  onChange={categorySearch}
-                      className="px-3 py-1 w-full focus:border-gray-400 outline-none bg-transparent border border-slate-200 rounded-md text-gray-500 overflow-hidden"
+                      className="px-3 py-1 w-full bg-white focus:border-gray-500 outline-none  border border-slate-200 rounded-md text-gray-500 overflow-hidden"
                       type="text"
                       placeholder="search"
                     />
