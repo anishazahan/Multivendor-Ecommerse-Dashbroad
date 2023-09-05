@@ -14,7 +14,7 @@ const LeftSidebar = ({ showSidebar, setShowSidebar }) => {
   const { pathname } = useLocation();
   const [allNav, setAllNav] = useState([]);
   useEffect(() => {
-    const navs = getNavs("admin");
+    const navs = getNavs("seller");
     setAllNav(navs);
   }, []);
 
