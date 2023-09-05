@@ -61,22 +61,22 @@ export const sellerRoutes = [
     role: "seller",
     status: "active",
   },
-  {
-    path: "/seller/dashboard/chat-support",
-    element: <SellerToAdmin />,
-    role: "seller",
-    visibility: ["active", "deactive", "pending"],
-  },
-  {
-    path: "/seller/dashboard/chat-customer/:customerId",
-    element: <SellerToCustomer />,
-    role: "seller",
-    status: "active",
-  },
-  {
-    path: "/seller/dashboard/chat-customer",
-    element: <SellerToCustomer />,
-    role: "seller",
-    status: "active",
-  },
+  // {
+  //   path: "/seller/dashboard/chat-support",
+  //   element: <SellerToAdmin />,
+  //   role: "seller",
+  //   visibility: ["active", "deactive", "pending"],
+  // },
+  // {
+  //   path: "/seller/dashboard/chat-customer",
+  //   element: <SellerToCustomer />,
+  //   role: "seller",
+  //   status: "active",
+  // },
+  // {
+  //   path: "/seller/dashboard/chat-customer/:customerId",
+  //   element: <SellerToCustomer />,
+  //   role: "seller",
+  //   status: "active",
+  // },
 ];
