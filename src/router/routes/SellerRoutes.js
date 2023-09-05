@@ -8,6 +8,12 @@ const SellerDashboard = lazy(() =>
 const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
 const Payments = lazy(() => import("../../views/pages/seller/Payments"));
 const Products = lazy(() => import("../../views/pages/seller/Products"));
+const SellerToCustomer = lazy(() =>
+  import("../../views/pages/seller/SellerToCustomer")
+);
+const SellerToAdmin = lazy(() =>
+  import("../../views/pages/seller/SellerToAdmin")
+);
 const DiscountProducts = lazy(() =>
   import("../../views/pages/seller/DiscountProducts")
 );
@@ -47,11 +53,29 @@ export const sellerRoutes = [
     path: "/seller/dashboard/orders",
     element: <Orders />,
     role: "seller",
-    visibility: ["active", "deactive"],
+    visibility: ["active", "deactive"], //if admin bane seller,,although seller access this routes
   },
   {
     path: "/seller/dashboard/payments",
     element: <Payments />,
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/chat-support",
+    element: <SellerToAdmin />,
+    role: "seller",
+    visibility: ["active", "deactive", "pending"],
+  },
+  {
+    path: "/seller/dashboard/chat-customer/:customerId",
+    element: <SellerToCustomer />,
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/chat-customer",
+    element: <SellerToCustomer />,
     role: "seller",
     status: "active",
   },
