@@ -17,7 +17,7 @@ const SellerDashboard = () => {
         data: [34, 32, 45, 32, 34, 34, 43, 56, 65, 67, 45, 78],
       },
       {
-        name: "Sellers",
+        name: "Sales",
         data: [78, 32, 34, 54, 65, 34, 54, 21, 54, 43, 45, 43],
       },
     ],
@@ -119,16 +119,18 @@ const SellerDashboard = () => {
         <div className="flex justify-between items-center p-5 bg-white shadow rounded-md gap-3">
           <div className="flex flex-col justify-start items-start text-gray-900">
             <h2 className="text-3xl font-bold">50</h2>
-            <span className="text-md font-medium text-gray-500">Sellers</span>
+            <span className="text-md font-medium text-gray-500">Orders</span>
           </div>
           <div className="w-[46px] h-[47px] rounded-full bg-[#00cfe81f] flex justify-center items-center text-xl">
-            <FaUsers className="text-[#00cfe8] shadow-lg" />
+            <AiOutlineShoppingCart className="text-[#00cfe8] shadow-lg" />
           </div>
         </div>
         <div className="flex justify-between items-center p-5 bg-white shadow rounded-md gap-3">
           <div className="flex flex-col justify-start items-start text-gray-900">
             <h2 className="text-3xl font-bold">12</h2>
-            <span className="text-md font-medium text-gray-500">Orders</span>
+            <span className="text-md font-medium text-gray-500">
+              Pending Orders
+            </span>
           </div>
           <div className="w-[46px] h-[47px] rounded-full bg-[#7367f01f] flex justify-center items-center text-xl">
             <AiOutlineShoppingCart className="text-[#7367f0] shadow-lg" />
@@ -150,7 +152,7 @@ const SellerDashboard = () => {
           <div className="w-full bg-white p-4 shadow rounded-md text-gray-800">
             <div className="flex justify-between items-center pb-3">
               <h2 className="font-semibold text-gray-800">
-                Recent seller message
+                Recent Customer Message
               </h2>
               <Link className="font-semibold text-sm text-gray-700">
                 View All
@@ -168,7 +170,7 @@ const SellerDashboard = () => {
                   </div>
                   <div className="p-3 bg-slate-100 rounded-lg border border-slate-200 shadow-sm">
                     <div className="flex justify-between items-center mb-2">
-                      <Link className="text-md font-normal">Admin</Link>
+                      <Link className="text-md font-normal">Seller</Link>
                       <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
                         4 day ago
                       </time>
@@ -188,7 +190,7 @@ const SellerDashboard = () => {
                   </div>
                   <div className="p-3 bg-slate-100 rounded-lg border border-slate-200 shadow-sm">
                     <div className="flex justify-between items-center mb-2">
-                      <Link className="text-md font-normal">Admin</Link>
+                      <Link className="text-md font-normal">Seller</Link>
                       <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
                         4 day ago
                       </time>
@@ -208,7 +210,7 @@ const SellerDashboard = () => {
                   </div>
                   <div className="p-3 bg-slate-100 rounded-lg border border-slate-200 shadow-sm">
                     <div className="flex justify-between items-center mb-2">
-                      <Link className="text-md font-normal">Admin</Link>
+                      <Link className="text-md font-normal">Seller</Link>
                       <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
                         4 day ago
                       </time>

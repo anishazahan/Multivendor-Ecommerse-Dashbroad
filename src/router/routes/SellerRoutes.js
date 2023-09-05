@@ -4,6 +4,7 @@ const Home = lazy(() => import("../../views/Home"));
 const SellerDashboard = lazy(() =>
   import("../../views/pages/seller/SellerDashboard")
 );
+const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
 
 export const sellerRoutes = [
   {
@@ -17,5 +18,11 @@ export const sellerRoutes = [
     // role: "seller",
     // status: "active",
     ability: ["seller"],
+  },
+  {
+    path: "/seller/dashboard/add-product",
+    element: <AddProduct />,
+    role: "seller",
+    status: "active",
   },
 ];
