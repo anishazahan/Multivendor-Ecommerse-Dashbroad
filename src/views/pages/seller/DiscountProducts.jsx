@@ -1,39 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 import Search from "../../components/Search";
+import Pagination from "../../Pagination";
 
-// import Search from "../components/Search";
-// import { get_products } from "../../store/Reducers/productReducer";
-const Products = () => {
-  //   const dispatch = useDispatch();
-  //   const { products, totalProduct } = useSelector((state) => state.product);
-
+const DiscountProducts = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
   const [parPage, setParPage] = useState(5);
-
-  //   useEffect(() => {
-  //     const obj = {
-  //       parPage: parseInt(parPage),
-  //       page: parseInt(currentPage),
-  //       searchValue,
-  //     };
-  //     dispatch(get_products(obj));
-  //   }, [searchValue, currentPage, parPage]);
-
   return (
     <div className="px-2 lg:px-5 pt-1 ">
-      <div className="w-full p-4  bg-white shadow rounded-md">
+      <div className="w-full p-4  bg-white border shadow rounded-md">
         <Search
           setParPage={setParPage}
           setSearchValue={setSearchValue}
           searchValue={searchValue}
         />
         <div className="relative overflow-x-auto mt-5">
-          <table className="w-full text-sm text-left text-[#d0d2d6]">
-            <thead className="text-sm text-gray-600 uppercase border-b border-slate-300">
+          <table className="w-full text-sm text-left text-gray-600">
+            <thead className="text-sm text-gray-600 uppercase border-b border-slate-700">
               <tr>
                 <th scope="col" className="py-3 px-4">
                   No
@@ -65,13 +50,13 @@ const Products = () => {
               </tr>
             </thead>
             <tbody>
-              {/* {products.map((d, i) => (
+              {[1, 2, 3, 4, 5].map((d, i) => (
                 <tr key={i}>
                   <td
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    {i + 1}
+                    {d}
                   </td>
                   <td
                     scope="row"
@@ -79,7 +64,7 @@ const Products = () => {
                   >
                     <img
                       className="w-[45px] h-[45px]"
-                      src={d.images[0]}
+                      src={`http://localhost:3000/images/category/${d}.jpg`}
                       alt=""
                     />
                   </td>
@@ -87,51 +72,44 @@ const Products = () => {
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    <span>{d?.name?.slice(0, 16)}...</span>
+                    <span>Men's Premium soft..</span>
                   </td>
                   <td
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    <span>{d.category}</span>
+                    <span>Sports</span>
                   </td>
                   <td
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    <span>{d.brand}</span>
+                    <span>Easy</span>
                   </td>
                   <td
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    <span>${d.price}</span>
+                    <span>$565</span>
                   </td>
                   <td
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    {d.discount === 0 ? (
-                      <span>no discount</span>
-                    ) : (
-                      <span>${d.discount}%</span>
-                    )}
+                    <span>5%</span>
                   </td>
                   <td
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    <span>{d.stock}</span>
+                    <span>10</span>
                   </td>
                   <td
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
                     <div className="flex justify-start items-center gap-4">
-                      <Link
-                        to={`/seller/dashboard/edit-product/${d._id}`}
-                        className="p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50"
-                      >
+                      <Link className="p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50">
                         <FaEdit />
                       </Link>
                       <Link className="p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50">
@@ -143,26 +121,22 @@ const Products = () => {
                     </div>
                   </td>
                 </tr>
-              ))} */}
+              ))}
             </tbody>
           </table>
         </div>
-        {/* {totalProduct <= parPage ? (
-          ""
-        ) : (
-          <div className="w-full flex justify-end mt-4 bottom-4 right-4">
-            <Pagination
-              pageNumber={currentPage}
-              setPageNumber={setCurrentPage}
-              totalItem={50}
-              parPage={parPage}
-              showItem={4}
-            />
-          </div>
-        )} */}
+        <div className="w-full flex justify-end mt-4 bottom-4 right-4">
+          <Pagination
+            pageNumber={currentPage}
+            setPageNumber={setCurrentPage}
+            totalItem={50}
+            parPage={parPage}
+            showItem={4}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Products;
+export default DiscountProducts;
