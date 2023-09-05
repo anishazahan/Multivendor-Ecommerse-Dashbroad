@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import Orders from "../../views/pages/seller/Orders";
 
 const Home = lazy(() => import("../../views/Home"));
 const SellerDashboard = lazy(() =>
@@ -40,5 +41,11 @@ export const sellerRoutes = [
     element: <DiscountProducts />,
     role: "seller",
     status: "active",
+  },
+  {
+    path: "/seller/dashboard/orders",
+    element: <Orders />,
+    role: "seller",
+    visibility: ["active", "deactive"],
   },
 ];
