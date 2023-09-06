@@ -43,6 +43,12 @@ export const sellerRoutes = [
     role: "seller",
     status: "active",
   },
+  //   {
+  //     path: '/seller/dashboard/edit-product/:productId',
+  //     element: <EditProduct />,
+  //     role: 'seller',
+  //     status: 'active'
+  // },
   {
     path: "/seller/dashboard/discount-products",
     element: <DiscountProducts />,
@@ -55,6 +61,12 @@ export const sellerRoutes = [
     role: "seller",
     visibility: ["active", "deactive"], //if admin bane seller,,although seller access this routes
   },
+  //   {
+  //     path: '/seller/dashboard/order/details/:orderId',
+  //     element: <OrderDetails />,
+  //     role: 'seller',
+  //     visibility: ['active', 'deactive']
+  // },
   {
     path: "/seller/dashboard/payments",
     element: <Payments />,
@@ -79,4 +91,10 @@ export const sellerRoutes = [
   //   role: "seller",
   //   status: "active",
   // },
+  //   {
+  //     path: '/seller/dashboard/profile',
+  //     element: <Profile />,
+  //     role: 'seller',
+  //     visibility: ['active', 'deactive', 'pending']
+  // }
 ];
