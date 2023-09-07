@@ -1,13 +1,14 @@
 import { lazy } from "react";
 import Orders from "../../views/pages/seller/Orders";
 
-const Home = lazy(() => import("../../views/Home"));
 const SellerDashboard = lazy(() =>
   import("../../views/pages/seller/SellerDashboard")
 );
 const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
 const Payments = lazy(() => import("../../views/pages/seller/Payments"));
 const Products = lazy(() => import("../../views/pages/seller/Products"));
+const Pending = lazy(() => import("../../views/Pending"));
+const Deactive = lazy(() => import("../../views/Deactive"));
 const SellerToCustomer = lazy(() =>
   import("../../views/pages/seller/SellerToCustomer")
 );
@@ -19,17 +20,21 @@ const DiscountProducts = lazy(() =>
 );
 
 export const sellerRoutes = [
+  // {
+  //   path: "/seller/account-pending",
+  //   element: <Pending />,
+  //   ability: "seller",
+  // },
   {
-    path: "/",
-    element: <Home />,
-    ability: ["admin", "seller"],
+    path: "/seller/account-deactive",
+    element: <Deactive />,
+    ability: "seller",
   },
   {
     path: "/seller/dashboard",
     element: <SellerDashboard />,
-    // role: "seller",
-    // status: "active",
-    ability: ["seller"],
+    role: "seller",
+    status: "active",
   },
   {
     path: "/seller/dashboard/add-product",

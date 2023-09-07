@@ -7,16 +7,16 @@ import { BiLogInCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 
 const LeftSidebar = ({ showSidebar, setShowSidebar }) => {
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // const { role } = useSelector((state) => state.auth);
+  const { role } = useSelector((state) => state.auth);
   const { pathname } = useLocation();
   const [allNav, setAllNav] = useState([]);
   useEffect(() => {
-    const navs = getNavs("seller");
-    setAllNav(navs);
-  }, []);
+    const navs = getNavs(role);
+    setAllNav(navs); // Set allNav to the navs variable
+  }, [role]);
 
   return (
     <div>
