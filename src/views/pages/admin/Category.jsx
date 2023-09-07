@@ -9,7 +9,7 @@ import { BsImage } from "react-icons/bs";
 import toast from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import Pagination from "../../Pagination";
-// import Search from "../components/Search";
+import Search from "../../components/Search";
 // import {
 //   categoryAdd,
 //   messageClear,
@@ -31,21 +31,23 @@ const Category = () => {
   });
 
   const categorys = ["helo", "helo"];
+  const loader = false;
 
-  //   const imageHandle = (e) => {
-  //     let files = e.target.files;
-  //     if (files.length > 0) {
-  //       setImage(URL.createObjectURL(files[0]));
-  //       setState({
-  //         ...state,
-  //         image: files[0],
-  //       });
-  //     }
-  //   };
-  //   const add_category = (e) => {
-  //     e.preventDefault();
-  //     dispatch(categoryAdd(state));
-  //   };
+  const imageHandle = (e) => {
+    let files = e.target.files;
+    if (files.length > 0) {
+      setImage(URL.createObjectURL(files[0]));
+      setState({
+        ...state,
+        image: files[0],
+      });
+    }
+  };
+  const add_category = (e) => {
+    e.preventDefault();
+    console.log(state);
+    // dispatch(categoryAdd(state));
+  };
 
   //   useEffect(() => {
   //     if (errorMessage) {
@@ -74,7 +76,7 @@ const Category = () => {
   return (
     <div className="px-2 lg:px-5 pt-1">
       <div className="flex lg:hidden justify-between items-center mb-5 p-4 bg-white shadow rounded-md">
-        <h1 className="text-gray-700 font-semibold text-lg">Categorys</h1>
+        <h1 className="text-gray-700 font-semibold text-lg">Catagories</h1>
         <button
           onClick={() => setShow(true)}
           className="bg-primary shadow-lg hover:shadow-indigo-500/50 px-4 py-2 cursor-pointer text-white rounded-sm text-sm"
@@ -85,11 +87,11 @@ const Category = () => {
       <div className="flex flex-wrap w-full">
         <div className="w-full lg:w-7/12">
           <div className="w-full p-4  bg-white rounded-md">
-            {/* <Search
+            <Search
               setParPage={setParPage}
               setSearchValue={setSearchValue}
               searchValue={searchValue}
-            /> */}
+            />
             <div className="relative overflow-x-auto">
               <table className="w-full text-sm text-left text-[#d0d2d6]">
                 <thead className="text-sm text-gray-600 uppercase border-b border-slate-300">
@@ -180,9 +182,7 @@ const Category = () => {
                   <GrClose className="text-[#d0d2d6]" />
                 </div>
               </div>
-              <form
-              //   onSubmit={add_category}
-              >
+              <form onSubmit={add_category}>
                 <div className="flex flex-col w-full gap-1 mb-3">
                   <label htmlFor="name">Category name</label>
                   <input
@@ -204,7 +204,11 @@ const Category = () => {
                     htmlFor="image"
                   >
                     {imageShow ? (
-                      <img className="w-full h-full" src={imageShow} />
+                      <img
+                        className="w-full h-full object-contain"
+                        src={imageShow}
+                        alt=""
+                      />
                     ) : (
                       <>
                         <span>
@@ -216,7 +220,7 @@ const Category = () => {
                   </label>
                 </div>
                 <input
-                  //   onChange={imageHandle}
+                  onChange={imageHandle}
                   className="hidden"
                   type="file"
                   name="image"
@@ -225,18 +229,18 @@ const Category = () => {
                 />
                 <div className="mt-4">
                   <button
-                    // disabled={loader ? true : false}
+                    disabled={loader ? true : false}
                     className="bg-primary w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3"
                   >
-                    {/* {loader ? (
+                    {loader ? (
                       <PropagateLoader
                         color="#fff"
                         cssOverride={overrideStyle}
                       />
                     ) : (
                       "Add Category"
-                    )} */}
-                    "Add Category"
+                    )}
+                    {/* "Add Category" */}
                   </button>
                 </div>
               </form>
