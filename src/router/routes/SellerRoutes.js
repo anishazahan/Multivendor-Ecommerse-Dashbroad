@@ -9,6 +9,7 @@ const Payments = lazy(() => import("../../views/pages/seller/Payments"));
 const Products = lazy(() => import("../../views/pages/seller/Products"));
 const Pending = lazy(() => import("../../views/Pending"));
 const Deactive = lazy(() => import("../../views/Deactive"));
+const EditProduct = lazy(() => import("../../views/pages/seller/EditProduct"));
 const SellerToCustomer = lazy(() =>
   import("../../views/pages/seller/SellerToCustomer")
 );
@@ -48,12 +49,12 @@ export const sellerRoutes = [
     role: "seller",
     status: "active",
   },
-  //   {
-  //     path: '/seller/dashboard/edit-product/:productId',
-  //     element: <EditProduct />,
-  //     role: 'seller',
-  //     status: 'active'
-  // },
+  {
+    path: "/seller/dashboard/edit-product/:productId",
+    element: <EditProduct />,
+    role: "seller",
+    status: "active",
+  },
   {
     path: "/seller/dashboard/discount-products",
     element: <DiscountProducts />,

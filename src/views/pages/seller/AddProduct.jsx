@@ -46,7 +46,6 @@ const AddProduct = () => {
   const [category, setCategory] = useState("");
   const [allCategory, setAllCategory] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-
   const categorySearch = (e) => {
     const value = e.target.value;
     setSearchValue(value);
@@ -115,7 +114,6 @@ const AddProduct = () => {
     }
     dispatch(add_product(formData));
   };
-
   useEffect(() => {
     if (errorMessage) {
       toast.error(errorMessage);
@@ -156,7 +154,7 @@ const AddProduct = () => {
               <div className="flex flex-col w-full gap-1">
                 <label htmlFor="name">Product name</label>
                 <input
-                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-700 rounded-md text-[#d0d2d6]"
+                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-700 rounded-md text-gray-600"
                   onChange={inputHandle}
                   value={state.name}
                   type="text"
@@ -184,7 +182,7 @@ const AddProduct = () => {
                 <input
                   readOnly
                   onClick={() => setCateShow(!cateShow)}
-                  className="px-4 py-2 focus:border-gray-500 outline-none bg-gray-100 border border-slate-200 rounded-md text-[#d0d2d6]"
+                  className="px-4 py-2 focus:border-gray-500 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-700"
                   onChange={inputHandle}
                   value={category}
                   type="text"
@@ -200,7 +198,7 @@ const AddProduct = () => {
                     <input
                       value={searchValue}
                       onChange={categorySearch}
-                      className="px-3 py-1 w-full bg-white focus:border-gray-500 outline-none  border border-slate-200 rounded-md text-gray-500 overflow-hidden"
+                      className="px-3 py-1 w-full bg-white focus:border-gray-500 outline-none  border border-slate-200 rounded-md text-gray-700 overflow-hidden"
                       type="text"
                       placeholder="search"
                     />
@@ -209,8 +207,8 @@ const AddProduct = () => {
                   <div className="flex justify-start items-start flex-col h-[200px] overflow-x-scroll">
                     {allCategory.map((c, i) => (
                       <span
-                        className={`px-4 py-2 hover:bg-indigo-500 hover:text-white hover:shadow-lg w-full cursor-pointer ${
-                          category === c.name && "bg-indigo-500"
+                        className={`px-4 py-2 hover:bg-indigo-500 text-gray-900 hover:text-white hover:shadow-lg w-full cursor-pointer ${
+                          category === c.name && "bg-primary my-1 text-white"
                         }`}
                         onClick={() => {
                           setCateShow(false);
@@ -228,7 +226,7 @@ const AddProduct = () => {
               <div className="flex flex-col w-full gap-1">
                 <label htmlFor="stock">Stock</label>
                 <input
-                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-500"
+                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-600"
                   onChange={inputHandle}
                   value={state.stock}
                   type="number"
@@ -244,7 +242,7 @@ const AddProduct = () => {
               <div className="flex flex-col w-full gap-1">
                 <label htmlFor="price">Price</label>
                 <input
-                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-500"
+                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md font-medium text-gray-600"
                   onChange={inputHandle}
                   value={state.price}
                   type="number"
@@ -257,7 +255,7 @@ const AddProduct = () => {
                 <label htmlFor="discount">Discount</label>
                 <input
                   min="0"
-                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-500"
+                  className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-600"
                   onChange={inputHandle}
                   value={state.discount}
                   type="number"
@@ -271,7 +269,7 @@ const AddProduct = () => {
               <label htmlFor="description">Description</label>
               <textarea
                 rows={4}
-                className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-500"
+                className="px-4 py-2 focus:border-gray-300 outline-none bg-gray-100 border border-slate-200 rounded-md text-gray-600"
                 onChange={inputHandle}
                 value={state.description}
                 placeholder="description"
