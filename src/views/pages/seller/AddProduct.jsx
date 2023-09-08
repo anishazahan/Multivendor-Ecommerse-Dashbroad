@@ -6,19 +6,27 @@ import { useSelector, useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { PropagateLoader } from "react-spinners";
 import { overrideStyle } from "../../../utils/utils";
-// import { get_category } from '../../store/Reducers/categoryReducer'
-// import { add_product, messageClear } from '../../store/Reducers/productReducer'
+import {
+  get_category,
+  messageClear,
+} from "../../../Store/Reducers/categoryReducer";
+import { add_product } from "../../../Store/Reducers/productReducer";
+
 const AddProduct = () => {
-  // const dispatch = useDispatch()
-  // const { categorys } = useSelector(state => state.category)
-  // const { successMessage, errorMessage, loader } = useSelector(state => state.product)
-  // useEffect(() => {
-  //     dispatch(get_category({
-  //         searchValue: '',
-  //         parPage: '',
-  //         page: ""
-  //     }))
-  // }, [])
+  const dispatch = useDispatch();
+  const { categorys } = useSelector((state) => state.category);
+  const { successMessage, errorMessage, loader } = useSelector(
+    (state) => state.product
+  );
+  useEffect(() => {
+    dispatch(
+      get_category({
+        searchValue: "",
+        parPage: "",
+        page: "",
+      })
+    );
+  }, []);
   const [state, setState] = useState({
     name: "",
     description: "",
@@ -38,16 +46,19 @@ const AddProduct = () => {
   const [category, setCategory] = useState("");
   const [allCategory, setAllCategory] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  // const categorySearch = (e) => {
-  //     const value = e.target.value
-  //     setSearchValue(value)
-  //     if (value) {
-  //         let srcValue = allCategory.filter(c => c.name.toLowerCase().indexOf(value.toLowerCase()) > -1)
-  //         setAllCategory(srcValue)
-  //     } else {
-  //         setAllCategory(categorys)
-  //     }
-  // }
+
+  const categorySearch = (e) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    if (value) {
+      let srcValue = allCategory.filter(
+        (c) => c.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+      );
+      setAllCategory(srcValue);
+    } else {
+      setAllCategory(categorys);
+    }
+  };
   const [images, setImages] = useState([]);
   const [imageShow, setImageShow] = useState([]);
   const inmageHandle = (e) => {
@@ -84,48 +95,48 @@ const AddProduct = () => {
     setImageShow(filterImageUrl);
   };
 
-  // useEffect(() => {
-  //     setAllCategory(categorys)
-  // }, [categorys])
+  useEffect(() => {
+    setAllCategory(categorys);
+  }, [categorys]);
 
-  // const add = (e) => {
-  //     e.preventDefault()
-  //     const formData = new FormData()
-  //     formData.append('name', state.name)
-  //     formData.append('description', state.description)
-  //     formData.append('price', state.price)
-  //     formData.append('stock', state.stock)
-  //     formData.append('category', category)
-  //     formData.append('discount', state.discount)
-  //     formData.append('shopName', 'Farid Fashoin')
-  //     formData.append('brand', state.brand)
-  //     for (let i = 0; i < images.length; i++) {
-  //         formData.append('images', images[i])
-  //     }
-  //     dispatch(add_product(formData))
-  // }
-  // useEffect(() => {
-  //     if (errorMessage) {
-  //         toast.error(errorMessage)
-  //         dispatch(messageClear())
-  //     }
-  //     if (successMessage) {
-  //         toast.success(successMessage)
-  //         dispatch(messageClear())
-  //         setState({
-  //             name: "",
-  //             description: '',
-  //             discount: '',
-  //             price: "",
-  //             brand: "",
-  //             stock: ""
-  //         })
-  //         setImageShow([])
-  //         setImages([])
-  //         setCategory('')
+  const add = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", state.name);
+    formData.append("description", state.description);
+    formData.append("price", state.price);
+    formData.append("stock", state.stock);
+    formData.append("category", category);
+    formData.append("discount", state.discount);
+    formData.append("shopName", "Anisha Collection");
+    formData.append("brand", state.brand);
+    for (let i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
+    }
+    dispatch(add_product(formData));
+  };
 
-  //     }
-  // }, [successMessage, errorMessage])
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+      setState({
+        name: "",
+        description: "",
+        discount: "",
+        price: "",
+        brand: "",
+        stock: "",
+      });
+      setImageShow([]);
+      setImages([]);
+      setCategory("");
+    }
+  }, [successMessage, errorMessage]);
 
   return (
     <div className="px-2 lg:px-5 pt-1 ">
@@ -140,9 +151,7 @@ const AddProduct = () => {
           </Link>
         </div>
         <div>
-          <form
-          //  onSubmit={add}
-          >
+          <form onSubmit={add}>
             <div className="flex flex-col mb-3 md:flex-row gap-4 w-full text-gray-600">
               <div className="flex flex-col w-full gap-1">
                 <label htmlFor="name">Product name</label>
@@ -190,7 +199,7 @@ const AddProduct = () => {
                   <div className="w-full px-4 py-2 fixed">
                     <input
                       value={searchValue}
-                      //  onChange={categorySearch}
+                      onChange={categorySearch}
                       className="px-3 py-1 w-full bg-white focus:border-gray-500 outline-none  border border-slate-200 rounded-md text-gray-500 overflow-hidden"
                       type="text"
                       placeholder="search"
@@ -207,7 +216,7 @@ const AddProduct = () => {
                           setCateShow(false);
                           setCategory(c.name);
                           setSearchValue("");
-                          // setAllCategory(categorys)
+                          setAllCategory(categorys);
                         }}
                       >
                         {c.name}
@@ -313,13 +322,15 @@ const AddProduct = () => {
             </div>
             <div className="flex">
               <button
-                //  disabled={loader ? true : false}
+                disabled={loader ? true : false}
                 className="bg-primary w-[190px] hover:shadow-blue-500/20 hover:shadow-lg text-white rounded px-7 py-2 mb-3"
               >
-                {/* {
-                                    loader ? <PropagateLoader color='#fff' cssOverride={overrideStyle} /> : 'Add product'
-                                } */}
-                add product
+                {loader ? (
+                  <PropagateLoader color="#fff" cssOverride={overrideStyle} />
+                ) : (
+                  "Add product"
+                )}
+                {/* add product */}
               </button>
             </div>
           </form>
