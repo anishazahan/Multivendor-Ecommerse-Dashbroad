@@ -10,16 +10,17 @@ import toast from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import Pagination from "../../Pagination";
 import Search from "../../components/Search";
-// import {
-//   categoryAdd,
-//   messageClear,
-//   get_category,
-// } from "../../store/Reducers/categoryReducer";
+import {
+  categoryAdd,
+  get_category,
+  messageClear,
+} from "../../../Store/Reducers/categoryReducer";
+
 const Category = () => {
-  //   const dispatch = useDispatch();
-  //   const { loader, successMessage, errorMessage, categorys } = useSelector(
-  //     (state) => state.category
-  //   );
+  const dispatch = useDispatch();
+  const { loader, successMessage, errorMessage, categorys } = useSelector(
+    (state) => state.category
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
   const [parPage, setParPage] = useState(5);
@@ -30,8 +31,8 @@ const Category = () => {
     image: "",
   });
 
-  const categorys = ["helo", "helo"];
-  const loader = false;
+  // const categorys = ["helo", "helo"];
+  // const loader = false;
 
   const imageHandle = (e) => {
     let files = e.target.files;
@@ -45,34 +46,34 @@ const Category = () => {
   };
   const add_category = (e) => {
     e.preventDefault();
-    console.log(state);
-    // dispatch(categoryAdd(state));
+    // console.log(state);
+    dispatch(categoryAdd(state));
   };
 
-  //   useEffect(() => {
-  //     if (errorMessage) {
-  //       toast.error(errorMessage);
-  //       dispatch(messageClear());
-  //     }
-  //     if (successMessage) {
-  //       toast.success(successMessage);
-  //       dispatch(messageClear());
-  //       setState({
-  //         name: "",
-  //         image: "",
-  //       });
-  //       setImage("");
-  //     }
-  //   }, [successMessage, errorMessage]);
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+      setState({
+        name: "",
+        image: "",
+      });
+      setImage("");
+    }
+  }, [successMessage, errorMessage]);
 
-  //   useEffect(() => {
-  //     const obj = {
-  //       parPage: parseInt(parPage),
-  //       page: parseInt(currentPage),
-  //       searchValue,
-  //     };
-  //     dispatch(get_category(obj));
-  //   }, [searchValue, currentPage, parPage]);
+  useEffect(() => {
+    const obj = {
+      parPage: parseInt(parPage),
+      page: parseInt(currentPage),
+      searchValue,
+    };
+    dispatch(get_category(obj));
+  }, [searchValue, currentPage, parPage]);
   return (
     <div className="px-2 lg:px-5 pt-1">
       <div className="flex lg:hidden justify-between items-center mb-5 p-4 bg-white shadow rounded-md">
@@ -115,7 +116,7 @@ const Category = () => {
                     <tr key={i}>
                       <td
                         scope="row"
-                        className="py-1 px-4 font-medium whitespace-nowrap"
+                        className="py-1 text-gray-600 px-4 font-medium whitespace-nowrap"
                       >
                         {i + 1}
                       </td>
@@ -133,7 +134,7 @@ const Category = () => {
                         scope="row"
                         className="py-1 px-4 font-medium whitespace-nowrap"
                       >
-                        <span>{d.name}</span>
+                        <span className="text-gray-600">{d.name}</span>
                       </td>
                       <td
                         scope="row"
