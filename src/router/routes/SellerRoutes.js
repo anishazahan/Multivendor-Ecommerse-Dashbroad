@@ -5,6 +5,7 @@ const SellerDashboard = lazy(() =>
   import("../../views/pages/seller/SellerDashboard")
 );
 const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
+const Profile = lazy(() => import("../../views/pages/seller/Profile"));
 const Payments = lazy(() => import("../../views/pages/seller/Payments"));
 const Products = lazy(() => import("../../views/pages/seller/Products"));
 const Pending = lazy(() => import("../../views/Pending"));
@@ -97,10 +98,10 @@ export const sellerRoutes = [
   //   role: "seller",
   //   status: "active",
   // },
-  //   {
-  //     path: '/seller/dashboard/profile',
-  //     element: <Profile />,
-  //     role: 'seller',
-  //     visibility: ['active', 'deactive', 'pending']
-  // }
+  {
+    path: "/seller/dashboard/profile",
+    element: <Profile />,
+    role: "seller",
+    visibility: ["active", "deactive", "pending"],
+  },
 ];
