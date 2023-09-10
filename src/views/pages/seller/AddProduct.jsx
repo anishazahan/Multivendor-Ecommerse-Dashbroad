@@ -282,7 +282,7 @@ const AddProduct = () => {
                 <div className="h-[180px] relative">
                   <label htmlFor={i}>
                     <img
-                      className="w-full h-full rounded-sm"
+                      className="w-full h-full object-contain rounded-sm"
                       src={img.url}
                       alt=""
                     />
