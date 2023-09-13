@@ -22,11 +22,11 @@ const DiscountProducts = lazy(() =>
 );
 
 export const sellerRoutes = [
-  // {
-  //   path: "/seller/account-pending",
-  //   element: <Pending />,
-  //   ability: "seller",
-  // },
+  {
+    path: "/seller/account-pending",
+    element: <Pending />,
+    ability: "seller",
+  },
   {
     path: "/seller/account-deactive",
     element: <Deactive />,
@@ -86,18 +86,18 @@ export const sellerRoutes = [
   //   role: "seller",
   //   visibility: ["active", "deactive", "pending"],
   // },
-  // {
-  //   path: "/seller/dashboard/chat-customer",
-  //   element: <SellerToCustomer />,
-  //   role: "seller",
-  //   status: "active",
-  // },
-  // {
-  //   path: "/seller/dashboard/chat-customer/:customerId",
-  //   element: <SellerToCustomer />,
-  //   role: "seller",
-  //   status: "active",
-  // },
+  {
+    path: "/seller/dashboard/chat-customer",
+    element: <SellerToCustomer />,
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/chat-customer/:customerId",
+    element: <SellerToCustomer />,
+    role: "seller",
+    status: "active",
+  },
   {
     path: "/seller/dashboard/profile",
     element: <Profile />,
