@@ -80,12 +80,12 @@ export const sellerRoutes = [
     role: "seller",
     status: "active",
   },
-  // {
-  //   path: "/seller/dashboard/chat-support",
-  //   element: <SellerToAdmin />,
-  //   role: "seller",
-  //   visibility: ["active", "deactive", "pending"],
-  // },
+  {
+    path: "/seller/dashboard/chat-support",
+    element: <SellerToAdmin />,
+    role: "seller",
+    visibility: ["active", "deactive", "pending"],
+  },
   {
     path: "/seller/dashboard/chat-customer",
     element: <SellerToCustomer />,
