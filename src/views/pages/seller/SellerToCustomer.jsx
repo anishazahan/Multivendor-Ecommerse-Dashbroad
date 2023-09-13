@@ -88,14 +88,14 @@ const SellerToCustomer = () => {
   }, [messages]);
   return (
     <div className="px-2 lg:px-7 py-5">
-      <div className="w-full bg-[#283046] px-4 py-4 rounded-md h-[calc(100vh-140px)]">
+      <div className="w-full bg-white shadow px-4 py-4 rounded-md h-[calc(100vh-140px)]">
         <div className="flex w-full h-full relative">
           <div
             className={`w-[280px] h-full absolute z-10 ${
               show ? "-left-[16px]" : "-left-[336px]"
             } md:left-0 md:relative transition-all`}
           >
-            <div className="w-full h-[calc(100vh-177px)] bg-[#252b3b] md:bg-transparent overflow-y-auto">
+            <div className="w-full h-[calc(100vh-177px)] bg-white shadow md:bg-transparent overflow-y-auto">
               <div className="flex text-xl justify-between items-center p-4 md:p-0 md:px-3 md:pb-3 text-white">
                 <h2>Customers</h2>
                 <span
@@ -109,7 +109,7 @@ const SellerToCustomer = () => {
                 <Link
                   key={i}
                   to={`/seller/dashboard/chat-customer/${c.fdId}`}
-                  className={`h-[60px] flex justify-start gap-2 items-center text-white px-2 py-2 rounded-sm cursor-pointer bg-slate-700`}
+                  className={`h-[60px] flex justify-start gap-2 items-center text-gray-700 px-2 py-2 rounded-sm cursor-pointer bg-slate-100`}
                 >
                   <div className="relative">
                     <img
@@ -161,7 +161,7 @@ const SellerToCustomer = () => {
               </div>
             </div>
             <div className="py-4">
-              <div className="bg-slate-800 h-[calc(100vh-290px)] rounded-md p-3 overflow-y-auto">
+              <div className="bg-slate-100 h-[calc(100vh-290px)] rounded-md p-3 overflow-y-auto">
                 {customerId ? (
                   messages.map((m, i) => {
                     if (m.senderId === customerId) {
@@ -199,7 +199,7 @@ const SellerToCustomer = () => {
                             <div>
                               <img
                                 className="w-[38px] h-[38px] border-2 border-white rounded-full max-w-[38px] p-[3px]"
-                                src="http://localhost:3001/images/admin.jpg"
+                                src={m.image}
                                 alt=""
                               />
                             </div>
@@ -223,7 +223,7 @@ const SellerToCustomer = () => {
                 readOnly={customerId ? false : true}
                 onChange={(e) => setText(e.target.value)}
                 value={text}
-                className="w-full flex justify-between px-2 border border-slate-700 items-center py-[5px] focus:border-blue-500 rounded-md outline-none bg-transparent text-[#d0d2d6]"
+                className="w-full flex justify-between px-2 border border-slate-400 items-center py-[5px] focus:border-blue-500 rounded-md outline-none bg-transparent text-[#d0d2d6]"
                 type="text"
                 placeholder="input your message"
               />
