@@ -15,28 +15,12 @@ export const get_customers = createAsyncThunk(
   }
 );
 
-// export const get_customer_message = createAsyncThunk(
-//   "chat/get_customer_message",
-//   async (customerId, { rejectWithValue, fulfillWithValue }) => {
-//     try {
-//       const { data } = await api.get(
-//         `/chat/seller/get-customer-message/${customerId}`,
-//         { withCredentials: true }
-//       );
-//       return fulfillWithValue(data);
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
-//   }
-// );
-
-export const send_message = createAsyncThunk(
-  "chat/send_message",
-  async (info, { rejectWithValue, fulfillWithValue }) => {
+export const get_customer_message = createAsyncThunk(
+  "chat/get_customer_message",
+  async (customerId, { rejectWithValue, fulfillWithValue }) => {
     try {
-      const { data } = await api.post(
-        `/chat/seller/send-message-to-customer`,
-        info,
+      const { data } = await api.get(
+        `/chat/seller/get-customer-message/${customerId}`,
         { withCredentials: true }
       );
       return fulfillWithValue(data);
@@ -45,6 +29,22 @@ export const send_message = createAsyncThunk(
     }
   }
 );
+
+// export const send_message = createAsyncThunk(
+//   "chat/send_message",
+//   async (info, { rejectWithValue, fulfillWithValue }) => {
+//     try {
+//       const { data } = await api.post(
+//         `/chat/seller/send-message-to-customer`,
+//         info,
+//         { withCredentials: true }
+//       );
+//       return fulfillWithValue(data);
+//     } catch (error) {
+//       return rejectWithValue(error.response.data);
+//     }
+//   }
+// );
 
 export const get_sellers = createAsyncThunk(
   "chat/get_sellers",
