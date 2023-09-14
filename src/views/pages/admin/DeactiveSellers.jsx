@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Pagination from "../../Pagination";
+import { get_deactive_sellers } from "../../../Store/Reducers/sellerReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 // import { useDispatch, useSelector } from "react-redux";
 // import { get_deactive_sellers } from "../../store/Reducers/sellerReducer";
@@ -12,19 +14,19 @@ const DeactiveSellers = () => {
   const [parPage, setParPage] = useState(5);
   const [show, setShow] = useState(false);
 
-  //   const { sellers, totalSellers } = useSelector((state) => state.seller);
-  //   const dispatch = useDispatch();
+  const { sellers, totalSellers } = useSelector((state) => state.seller);
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     const obj = {
-  //       parPage: parseInt(parPage),
-  //       page: parseInt(currentPage),
-  //       searchValue,
-  //     };
-  //     dispatch(get_deactive_sellers(obj));
-  //   }, [searchValue, currentPage, parPage]);
+  useEffect(() => {
+    const obj = {
+      parPage: parseInt(parPage),
+      page: parseInt(currentPage),
+      searchValue,
+    };
+    dispatch(get_deactive_sellers(obj));
+  }, [searchValue, currentPage, parPage]);
 
-  const sellers = ["seller1", "seller2"];
+  // const sellers = ["seller1", "seller2"];
   return (
     <div className="px-2 lg:px-5 pt-5">
       <div className="w-full p-4 bg-white shadow rounded-md">
