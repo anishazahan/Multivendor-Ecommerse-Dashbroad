@@ -10,7 +10,7 @@ import {
 } from "../../../Store/Reducers/chatReducer";
 
 const SellerToAdmin = () => {
-  // const scrollRef = useRef();
+  const scrollRef = useRef();
 
   const [text, setText] = useState("");
   const dispatch = useDispatch();

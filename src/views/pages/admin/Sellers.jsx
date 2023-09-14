@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "../../Pagination";
 import { get_active_sellers } from "../../../Store/Reducers/sellerReducer";
-// import { get_active_sellers } from "../../store/Reducers/sellerReducer";
 
 const Sellers = () => {
   const dispatch = useDispatch();
@@ -92,11 +91,7 @@ const Sellers = () => {
                     scope="row"
                     className="py-1 px-4 font-medium whitespace-nowrap"
                   >
-                    <img
-                      className="w-[45px] h-[45px]"
-                      src={`http://localhost:3000/images/category/${d.image}.jpg`}
-                      alt=""
-                    />
+                    <img className="w-[45px] h-[45px]" src={d.image} alt="" />
                   </td>
                   <td
                     scope="row"
