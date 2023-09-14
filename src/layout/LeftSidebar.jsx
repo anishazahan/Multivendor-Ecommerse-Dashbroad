@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getNavs } from "../NavigationMenu/index";
-// import { logout } from "../store/Reducers/authReducer";
+
 import { BiLogInCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import { logout } from "../Store/Reducers/authReducer";
 
 const LeftSidebar = ({ showSidebar, setShowSidebar }) => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const LeftSidebar = ({ showSidebar, setShowSidebar }) => {
             ))}
             <li>
               <button
-                // onClick={() => dispatch(logout({ navigate, role }))}
+                onClick={() => dispatch(logout({ navigate, role }))}
                 className="text-zinc-900 font-normal duration-200 px-[12px] py-[9px] rounded-sm flex justify-start items-center gap-[12px] hover:pl-4 transition-all w-full mb-1 "
               >
                 <span>
