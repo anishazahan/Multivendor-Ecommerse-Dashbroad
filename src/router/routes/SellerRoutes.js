@@ -1,11 +1,12 @@
 import { lazy } from "react";
-import Orders from "../../views/pages/seller/Orders";
 
 const SellerDashboard = lazy(() =>
   import("../../views/pages/seller/SellerDashboard")
 );
 const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
+const OrderDetails = lazy(() => import("../../views/pages/admin/OrderDetails"));
 const Profile = lazy(() => import("../../views/pages/seller/Profile"));
+const Orders = lazy(() => import("../../views/pages/seller/Orders"));
 const Payments = lazy(() => import("../../views/pages/seller/Payments"));
 const Products = lazy(() => import("../../views/pages/seller/Products"));
 const Pending = lazy(() => import("../../views/Pending"));
@@ -68,12 +69,12 @@ export const sellerRoutes = [
     role: "seller",
     visibility: ["active", "deactive"], //if admin bane seller,,although seller access this routes
   },
-  //   {
-  //     path: '/seller/dashboard/order/details/:orderId',
-  //     element: <OrderDetails />,
-  //     role: 'seller',
-  //     visibility: ['active', 'deactive']
-  // },
+  {
+    path: "/seller/dashboard/order/details/:orderId",
+    element: <OrderDetails />,
+    role: "seller",
+    visibility: ["active", "deactive"],
+  },
   {
     path: "/seller/dashboard/payments",
     element: <Payments />,
