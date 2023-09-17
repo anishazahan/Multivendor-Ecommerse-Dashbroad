@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  messageClear,
   get_seller_order,
+  messageClear,
   seller_order_status_update,
-} from "../../store/Reducers/OrderReducer";
+} from "../../../Store/Reducers/orderReducer";
+
 const OrderDetails = () => {
   const { orderId } = useParams();
   const dispatch = useDispatch();
@@ -61,22 +62,22 @@ const OrderDetails = () => {
         </div>
         <div className="p-4">
           <div className="flex gap-2 text-lg text-[#d0d2d6]">
-            <h2>#{order._id}</h2>
-            <span>{order.date}</span>
+            <h2>#{order?._id}</h2>
+            <span>{order?.date}</span>
           </div>
           <div className="flex flex-wrap">
             <div className="w-[32%]">
               <div className="pr-3 text-[#d0d2d6] text-lg">
                 <div className="flex flex-col gap-1">
                   <h2 className="pb-2 font-semibold">
-                    Deliver to : {order.shippingInfo}
+                    Deliver to : {order?.shippingInfo}
                   </h2>
                 </div>
                 <div className="flex justify-start items-center gap-3">
                   <h2>Payment Status : </h2>
-                  <span className="text-base">{order.payment_status}</span>
+                  <span className="text-base">{order?.payment_status}</span>
                 </div>
-                <span>Price : ${order.price}</span>
+                <span>Price : ${order?.price}</span>
                 <div className="mt-4 flex flex-col gap-4">
                   <div className="text-[#d0d2d6] flex flex-col gap-6">
                     {order?.products?.map((p, i) => (

@@ -4,7 +4,9 @@ const SellerDashboard = lazy(() =>
   import("../../views/pages/seller/SellerDashboard")
 );
 const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
-const OrderDetails = lazy(() => import("../../views/pages/admin/OrderDetails"));
+const OrderDetails = lazy(() =>
+  import("../../views/pages/seller/OrderDetails")
+);
 const Profile = lazy(() => import("../../views/pages/seller/Profile"));
 const Orders = lazy(() => import("../../views/pages/seller/Orders"));
 const Payments = lazy(() => import("../../views/pages/seller/Payments"));
