@@ -26,7 +26,7 @@ const Sellers = () => {
     dispatch(get_active_sellers(obj));
   }, [searchValue, currentPage, parPage]);
   return (
-    <div className="px-2 lg:px-7 pt-5">
+    <div className="px-2 lg:px-5 pt-2">
       <div className="w-full p-4  bg-white shadow rounded-md">
         <div className="flex justify-between items-center">
           <select

@@ -26,8 +26,8 @@ const SellerRequest = () => {
   }, [parPage, searchValue, currentPage]);
   // const sellers = ["hellow", "hellow"];
   return (
-    <div className="px-2 lg:px-5 pt-5">
-      <div className="w-full px-4 pb-5   bg-white shadow rounded-md">
+    <div className="px-2 lg:px-5 pt-2">
+      <div className="w-full px-4 py-5   bg-white shadow rounded-md">
         <Search
           setParPage={setParPage}
           setSearchValue={setSearchValue}

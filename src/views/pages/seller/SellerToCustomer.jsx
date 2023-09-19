@@ -87,7 +87,7 @@ const SellerToCustomer = () => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
   return (
-    <div className="px-2 lg:px-7 py-5">
+    <div className="px-2 lg:px-5 py-2">
       <div className="w-full bg-white shadow px-4 py-4 rounded-md h-[calc(100vh-140px)]">
         <div className="flex w-full h-full relative">
           <div
@@ -95,8 +95,8 @@ const SellerToCustomer = () => {
               show ? "-left-[16px]" : "-left-[336px]"
             } md:left-0 md:relative transition-all`}
           >
-            <div className="w-full h-[calc(100vh-177px)] bg-white shadow md:bg-transparent overflow-y-auto">
-              <div className="flex text-xl justify-between items-center p-4 md:p-0 md:px-3 md:pb-3 text-white">
+            <div className="w-full h-[calc(100vh-177px)] bg-purple-200 md:bg-transparent overflow-y-auto">
+              <div className="flex text-xl justify-between items-center p-4 md:p-0 md:px-3 md:pb-3 text-slate-800">
                 <h2>Customers</h2>
                 <span
                   onClick={() => setShow(!show)}
@@ -109,7 +109,7 @@ const SellerToCustomer = () => {
                 <Link
                   key={i}
                   to={`/seller/dashboard/chat-customer/${c.fdId}`}
-                  className={`h-[60px] flex justify-start gap-2 items-center text-gray-700 px-2 py-2 rounded-sm cursor-pointer bg-slate-100`}
+                  className={`h-[60px] flex justify-start gap-2 items-center text-slate-800 px-2 py-2 rounded-sm cursor-pointer bg-slate-100`}
                 >
                   <div className="relative">
                     <img
@@ -146,14 +146,14 @@ const SellerToCustomer = () => {
                       <div className="w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0"></div>
                     )}
                   </div>
-                  <h2 className="text-base text-white font-semibold">
+                  <h2 className="text-base text-slate-800 font-semibold">
                     {currentCustomer.name}
                   </h2>
                 </div>
               )}
               <div
                 onClick={() => setShow(!show)}
-                className="w-[35px] flex md:hidden h-[35px] rounded-sm bg-blue-500 shadow-lg hover:shadow-blue-500/50 justify-center cursor-pointer items-center text-white"
+                className="w-[35px] flex md:hidden h-[35px] rounded-sm bg-blue-500 shadow-lg hover:shadow-blue-500/50 justify-center cursor-pointer items-center text-slate-800"
               >
                 <span>
                   <FaList />
@@ -179,7 +179,7 @@ const SellerToCustomer = () => {
                                 alt=""
                               />
                             </div>
-                            <div className="flex justify-center items-start flex-col w-full bg-orange-500 shadow-lg shadow-orange-500/50 text-white py-1 px-2 rounded-sm">
+                            <div className="flex justify-center items-start flex-col w-full bg-orange-500 shadow-lg shadow-orange-500/50 text-slate-800 py-1 px-2 rounded-sm">
                               <span>{m.message}</span>
                             </div>
                           </div>
@@ -193,13 +193,13 @@ const SellerToCustomer = () => {
                           className="w-full flex justify-end items-center"
                         >
                           <div className="flex justify-start items-start gap-2 md:px-3 py-2 max-w-full lg:max-w-[85%]">
-                            <div className="flex justify-center items-start flex-col w-full bg-blue-500 shadow-lg shadow-blue-500/50 text-white py-1 px-2 rounded-sm">
+                            <div className="flex justify-center items-start flex-col w-full bg-blue-500 shadow-lg shadow-blue-500/50 text-slate-800 py-1 px-2 rounded-sm">
                               <span>{m.message}</span>
                             </div>
                             <div>
                               <img
                                 className="w-[38px] h-[38px] border-2 border-white rounded-full max-w-[38px] p-[3px]"
-                                src={m.image}
+                                src="http://localhost:3001/images/admin.jpg"
                                 alt=""
                               />
                             </div>
@@ -209,7 +209,7 @@ const SellerToCustomer = () => {
                     }
                   })
                 ) : (
-                  <div className="w-full h-full flex justify-center items-center flex-col gap-2 text-white">
+                  <div className="w-full h-full flex justify-center items-center flex-col gap-2 text-slate-800">
                     <span>
                       <BsEmojiSmile />
                     </span>
@@ -223,13 +223,13 @@ const SellerToCustomer = () => {
                 readOnly={customerId ? false : true}
                 onChange={(e) => setText(e.target.value)}
                 value={text}
-                className="w-full flex justify-between px-2 border border-slate-400 items-center py-[5px] focus:border-blue-500 rounded-md outline-none bg-transparent text-[#d0d2d6]"
+                className="w-full flex justify-between px-2 border border-slate-200 items-center py-[5px] focus:border-blue-500 rounded-md outline-none bg-transparent text-[#d0d2d6]"
                 type="text"
                 placeholder="input your message"
               />
               <button
                 disabled={customerId ? false : true}
-                className="shadow-lg bg-cyan-500 hover:shadow-cyan-500/50 text-semibold w-[75px] h-[35px] rounded-md text-white flex justify-center items-center"
+                className="shadow-lg bg-primary py-2 hover:shadow-cyan-500/50 text-semibold w-[75px] h-[35px] rounded-md text-slate-100 flex justify-center items-center"
               >
                 Send
               </button>

@@ -207,6 +207,7 @@ const AddProduct = () => {
                   <div className="flex justify-start items-start flex-col h-[200px] overflow-x-scroll">
                     {allCategory.map((c, i) => (
                       <span
+                        key={i}
                         className={`px-4 py-2 hover:bg-indigo-500 text-gray-900 hover:text-white hover:shadow-lg w-full cursor-pointer ${
                           category === c.name && "bg-primary my-1 text-white"
                         }`}
@@ -279,7 +280,7 @@ const AddProduct = () => {
             </div>
             <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-3 sm:grid-cols-2 sm:gap-4 md:gap-4 xs:gap-4 gap-3 w-full text-gray-600 mb-4">
               {imageShow.map((img, i) => (
-                <div className="h-[180px] relative">
+                <div key={i} className="h-[180px] relative">
                   <label htmlFor={i}>
                     <img
                       className="w-full h-full object-contain rounded-sm"

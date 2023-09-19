@@ -28,7 +28,7 @@ const DeactiveSellers = () => {
 
   // const sellers = ["seller1", "seller2"];
   return (
-    <div className="px-2 lg:px-5 pt-5">
+    <div className="px-2 lg:px-5 pt-2">
       <div className="w-full p-4 bg-white shadow rounded-md">
         <div className="flex justify-between items-center">
           <select

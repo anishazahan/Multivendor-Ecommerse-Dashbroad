@@ -6,13 +6,28 @@ import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+
 const App = lazy(() => import("./App"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <Suspense fallback="loading...///////">
+      <Suspense
+        fallback={
+        <div className="h-[100vh] w-full flex justify-center items-center">
+          <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+          </div>
+        </div>
+        }
+      >
         <App />
         <Toaster
           toastOptions={{

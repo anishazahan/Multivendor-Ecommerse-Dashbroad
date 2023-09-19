@@ -43,7 +43,7 @@ const SellerDashboard = () => {
       },
       chart: {
         background: "transparent",
-        foreColor: "#d0d2d6",
+        foreColor: "#000",
       },
       dataLabels: {
         enabled: false,
@@ -115,10 +115,10 @@ const SellerDashboard = () => {
     dispatch(get_seller_dashboard_index_data());
   }, []);
   return (
-    <div className="px-2 md:px-7 py-5">
+    <div className="px-2 md:px-5 py-2">
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-7">
-        <div className="flex justify-between items-center p-5 bg-[#283046] rounded-md gap-3">
-          <div className="flex flex-col justify-start items-start text-[#d0d2d6]">
+        <div className="flex justify-between items-center p-5 bg-white shadow rounded-md gap-3">
+          <div className="flex flex-col justify-start items-start text-slate-800">
             <h2 className="text-3xl font-bold">${totalSale}</h2>
             <span className="text-md font-medium">Total Sales</span>
           </div>
@@ -126,8 +126,8 @@ const SellerDashboard = () => {
             <BsCurrencyDollar className="text-[#28c76f] shadow-lg" />
           </div>
         </div>
-        <div className="flex justify-between items-center p-5 bg-[#283046] rounded-md gap-3">
-          <div className="flex flex-col justify-start items-start text-[#d0d2d6]">
+        <div className="flex justify-between items-center p-5 bg-white shadow rounded-md gap-3">
+          <div className="flex flex-col justify-start items-start text-slate-800">
             <h2 className="text-3xl font-bold">{totalProduct}</h2>
             <span className="text-md font-medium">Products</span>
           </div>
@@ -135,8 +135,8 @@ const SellerDashboard = () => {
             <RiProductHuntLine className="text-[#cd00e8] shadow-lg" />
           </div>
         </div>
-        <div className="flex justify-between items-center p-5 bg-[#283046] rounded-md gap-3">
-          <div className="flex flex-col justify-start items-start text-[#d0d2d6]">
+        <div className="flex justify-between items-center p-5 bg-white shadow rounded-md gap-3">
+          <div className="flex flex-col justify-start items-start text-slate-800">
             <h2 className="text-3xl font-bold">{totalOrder}</h2>
             <span className="text-md font-medium">Orders</span>
           </div>
@@ -144,19 +144,19 @@ const SellerDashboard = () => {
             <AiOutlineShoppingCart className="text-[#00cfe8] shadow-lg" />
           </div>
         </div>
-        <div className="flex justify-between items-center p-5 bg-[#283046] rounded-md gap-3">
-          <div className="flex flex-col justify-start items-start text-[#d0d2d6]">
+        <div className="flex justify-between items-center p-5 bg-white shadow rounded-md gap-3">
+          <div className="flex flex-col justify-start items-start text-slate-800">
             <h2 className="text-3xl font-bold">{totalPendingOrder}</h2>
             <span className="text-md font-medium">Pending orders</span>
           </div>
-          <div className="w-[46px] h-[47px] rounded-full bg-[#7367f01f] flex justify-center items-center text-xl">
+          <div className="w-[46px] h-[47px] rounded-full bg-gray-100 flex justify-center items-center text-xl">
             <AiOutlineShoppingCart className="text-[#7367f0] shadow-lg" />
           </div>
         </div>
       </div>
       <div className="w-full flex flex-wrap mt-7">
         <div className="w-full lg:w-7/12 lg:pr-3">
-          <div className="w-full bg-[#283046] p-4 rounded-md">
+          <div className="w-full bg-white shadow p-4 rounded-md">
             <Chart
               options={state.options}
               series={state.series}
@@ -166,19 +166,19 @@ const SellerDashboard = () => {
           </div>
         </div>
         <div className="w-full lg:w-5/12 lg:pl-4 mt-6 lg:mt-0">
-          <div className="w-full bg-[#283046] p-4 rounded-md text-[#d0d2d6]">
+          <div className="w-full bg-white shadow p-4 rounded-md text-slate-800">
             <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-lg text-[#d0d2d6] pb-3">
+              <h2 className="font-semibold text-lg text-slate-800 pb-3">
                 Recent customer message
               </h2>
-              <Link className="font-semibold text-sm text-[#d0d2d6]">
+              <Link className="font-semibold text-sm text-slate-800">
                 View All
               </Link>
             </div>
-            <div className="flex flex-col gap-2 pt-6 text-[#d0d2d6]">
+            <div className="flex flex-col gap-2 pt-6 text-slate-800">
               <ol className="relative border-1 border-slate-600 ml-4">
                 {recentMessage.map((m, i) => (
-                  <li className="mb-3 ml-6">
+                  <li key={i} className="mb-3 ml-6">
                     <div className="flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
                       {m.senderId === userInfo._id ? (
                         <img
@@ -214,21 +214,21 @@ const SellerDashboard = () => {
           </div>
         </div>
       </div>
-      <div className="w-full p-4  bg-[#283046] rounded-md mt-6">
+      <div className="w-full p-4  bg-white shadow rounded-md mt-6">
         <div className="flex justify-between items-center">
-          <h2 className="font-semibold text-lg text-[#d0d2d6] pb-3">
+          <h2 className="font-semibold text-lg text-slate-800 pb-3">
             Recent Orders
           </h2>
           <Link
             to="/seller/dashboard/orders"
-            className="font-semibold text-sm text-[#d0d2d6]"
+            className="font-semibold text-sm text-slate-800"
           >
             View All
           </Link>
         </div>
         <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left text-[#d0d2d6]">
-            <thead className="text-sm text-[#d0d2d6] uppercase border-b border-slate-700">
+          <table className="w-full text-sm text-left text-slate-800">
+            <thead className="text-sm text-slate-800 uppercase border-b border-slate-200">
               <tr>
                 <th scope="col" className="py-3 px-4">
                   Order Id

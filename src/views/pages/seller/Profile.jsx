@@ -51,19 +51,23 @@ const Profile = () => {
     });
   };
   return (
-    <div className="px-2 lg:px-7 py-5">
+    <div className="px-2 lg:px-5 py-2">
       <div className="w-full flex flex-wrap">
         <div className="w-full md:w-6/12">
-          <div className="w-full p-4  bg-[#283046] rounded-md text-[#d0d2d6]">
+          <div className="w-full p-4 bg-white shadow rounded-md text-slate-800">
             <div className="flex justify-center items-center py-3">
               {userInfo?.image ? (
                 <label
                   htmlFor="img"
                   className="h-[210px] w-[300px] relative p-3 cursor-pointer overflow-hidden"
                 >
-                  <img className="w-full h-full" src={userInfo.image} alt="" />
+                  <img
+                    className="w-full h-full object-contain"
+                    src={userInfo.image}
+                    alt=""
+                  />
                   {loader && (
-                    <div className="bg-slate-600 absolute left-0 top-0 w-full h-full opacity-70 flex justify-center items-center z-20">
+                    <div className="bg-slate-200 absolute left-0 top-0 w-full h-full opacity-70 flex justify-center items-center z-20">
                       <span>
                         <FadeLoader />
                       </span>
@@ -80,7 +84,7 @@ const Profile = () => {
                   </span>
                   <span>Select Image</span>
                   {loader && (
-                    <div className="bg-slate-600 absolute left-0 top-0 w-full h-full opacity-70 flex justify-center items-center z-20">
+                    <div className="bg-slate-200 absolute left-0 top-0 w-full h-full opacity-70 flex justify-center items-center z-20">
                       <span>
                         <FadeLoader />
                       </span>
@@ -96,7 +100,7 @@ const Profile = () => {
               />
             </div>
             <div className="px-0 md:px-5 py-2">
-              <div className="flex justify-between text-sm flex-col gap-2 p-4 bg-slate-800 rounded-md relative">
+              <div className="flex justify-between text-sm flex-col gap-2 p-4 bg-slate-200 rounded-md relative">
                 <span className="p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50 absolute right-2 top-2 cursor-pointer">
                   <FaEdit />
                 </span>
@@ -145,7 +149,7 @@ const Profile = () => {
                     <input
                       value={state.shopName}
                       onChange={inputHandle}
-                      className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                      className="px-4 py-2 focus:border-indigo-500 outline-none bg-white shadow border border-slate-200 rounded-md text-slate-800"
                       type="text"
                       placeholder="shop name"
                       name="shopName"
@@ -157,7 +161,7 @@ const Profile = () => {
                     <input
                       value={state.division}
                       onChange={inputHandle}
-                      className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                      className="px-4 py-2 focus:border-indigo-500 outline-none bg-white shadow border border-slate-200 rounded-md text-slate-800"
                       type="text"
                       placeholder="division"
                       name="division"
@@ -169,7 +173,7 @@ const Profile = () => {
                     <input
                       value={state.district}
                       onChange={inputHandle}
-                      className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                      className="px-4 py-2 focus:border-indigo-500 outline-none first:bg-white shadow border border-slate-200 rounded-md text-slate-800"
                       type="text"
                       placeholder="district"
                       name="district"
@@ -181,7 +185,7 @@ const Profile = () => {
                     <input
                       value={state.sub_district}
                       onChange={inputHandle}
-                      className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                      className="px-4 py-2 focus:border-indigo-500 outline-none bg-white shadow border border-slate-200 rounded-md text-slate-800"
                       type="text"
                       placeholder="sub district"
                       name="sub_district"
@@ -203,8 +207,8 @@ const Profile = () => {
                   </button>
                 </form>
               ) : (
-                <div className="flex justify-between text-sm flex-col gap-2 p-4 bg-slate-800 rounded-md relative">
-                  <span className="p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50 absolute right-2 top-2 cursor-pointer">
+                <div className="flex justify-between text-sm flex-col gap-2 p-4 bg-slate-200 rounded-md relative">
+                  <span className="p-[6px] bg-purple-500 rounded hover:shadow-lg hover:shadow-purple-500/50 absolute right-2 top-2 cursor-pointer">
                     <FaEdit />
                   </span>
                   <div className="flex gap-2">
@@ -230,15 +234,15 @@ const Profile = () => {
         </div>
         <div className="w-full md:w-6/12">
           <div className="w-full pl-0 md:pl-7 mt-6 md:mt-0  ">
-            <div className="bg-[#283046] rounded-md text-[#d0d2d6] p-4">
-              <h1 className="text-[#d0d2d6] text-lg mb-3 font-semibold">
+            <div className="bg-white shadow rounded-md text-slate-800 p-4">
+              <h1 className="text-slate-800 text-lg mb-3 font-semibold">
                 Change Password
               </h1>
               <form>
                 <div className="flex flex-col w-full gap-1 mb-3">
                   <label htmlFor="email">Email</label>
                   <input
-                    className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                    className="px-4 py-2 focus:border-indigo-500 outline-none bg-white shadow border border-slate-200 rounded-md text-slate-800"
                     type="email"
                     placeholder="email"
                     name="email"
@@ -248,7 +252,7 @@ const Profile = () => {
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="o_password">Old Password</label>
                   <input
-                    className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                    className="px-4 py-2 focus:border-indigo-500 outline-none bg-white shadow border border-slate-200 rounded-md text-slate-800"
                     type="password"
                     placeholder="old password"
                     name="old_password"
@@ -258,14 +262,14 @@ const Profile = () => {
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="n_password">New Password</label>
                   <input
-                    className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                    className="px-4 py-2 focus:border-indigo-500 outline-none bg-white shadow border border-slate-2 00 rounded-md text-slate-800"
                     type="password"
                     placeholder="new password"
                     name="new_password"
                     id="n_password"
                   />
                 </div>
-                <button className="bg-blue-500 hover:shadow-blue-500/50 hover:shadow-lg text-white rounded-md px-7 py-2 mt-5 ">
+                <button className="bg-primary hover:shadow-blue-500/50 hover:shadow-lg text-white rounded-md px-7 py-2 mt-5 ">
                   Submit
                 </button>
               </form>

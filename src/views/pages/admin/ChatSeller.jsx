@@ -113,8 +113,8 @@ const ChatSeller = () => {
                 <Link
                   key={i}
                   to={`/admin/dashboard/chat-sellers/${s._id}`}
-                  className={`h-[60px] flex justify-start gap-2 items-center text-white px-2 rounded-sm py-2 cursor-pointer ${
-                    sellerId === s._id ? "bg-slate-700" : ""
+                  className={`h-[60px] flex justify-start gap-2 items-center text-slate-800 px-2 rounded-sm py-2 cursor-pointer ${
+                    sellerId === s._id ? "bg-slate-200" : ""
                   }`}
                 >
                   <div className="relative">
@@ -153,7 +153,7 @@ const ChatSeller = () => {
               )}
               <div
                 onClick={() => setShow(!show)}
-                className="w-[35px] flex md:hidden h-[35px] rounded-sm bg-blue-500 shadow-lg hover:shadow-blue-500/50 justify-center cursor-pointer items-center text-white"
+                className="w-[35px] flex md:hidden h-[35px] rounded-sm bg-blue-500 shadow-lg hover:shadow-blue-500/50 justify-center cursor-pointer items-center text-slate-700"
               >
                 <span>
                   <FaList />
@@ -207,7 +207,7 @@ const ChatSeller = () => {
                     }
                   })
                 ) : (
-                  <div className="w-full h-full flex justify-center items-center flex-col gap-2 text-white">
+                  <div className="w-full h-full flex justify-center items-center flex-col gap-2 text-slate-600">
                     <span>
                       <BsEmojiSmile />
                     </span>
@@ -221,7 +221,7 @@ const ChatSeller = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 readOnly={sellerId ? false : true}
-                className="w-full flex justify-between px-2 border border-slate-300 items-center py-2 focus:border-gray-300 rounded-md outline-none bg-transparent text-[#d0d2d6]"
+                className="w-full flex justify-between px-2 border border-slate-300 items-center py-2 focus:border-gray-300 rounded-md outline-none bg-transparent text-slate-700"
                 type="text"
                 placeholder="input your message"
               />
