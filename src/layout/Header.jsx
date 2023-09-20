@@ -1,6 +1,7 @@
 import React from "react";
 import { FaList } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import adminlogo from "../assets/Frame 4 (5).png";
 const Header = ({ showSidebar, setShowSidebar }) => {
   const { userInfo } = useSelector((state) => state.auth);
   console.log(userInfo);
@@ -37,7 +38,7 @@ const Header = ({ showSidebar, setShowSidebar }) => {
               {userInfo.role === "admin" ? (
                 <img
                   className="w-[45px] h-[45px] rounded-full overflow-hidden"
-                  src={userInfo.image}
+                  src={adminlogo}
                   alt=""
                 />
               ) : (

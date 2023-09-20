@@ -9,3 +9,4 @@ export const overrideStyle = {
 };
 
 export const socket = io("https://multivendor-backend-eight.vercel.app");
+// export const socket = io("http://localhost:5000");

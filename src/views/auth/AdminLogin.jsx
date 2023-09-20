@@ -5,6 +5,7 @@ import { admin_login } from "../../Store/Reducers/authReducer";
 import { PropagateLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { overrideStyle } from "../../utils/utils";
+import logo from "../../assets/Frame 4 (4).png";
 
 import {
   messageClear,
@@ -42,17 +43,14 @@ const AdminLogin = () => {
       dispatch(messageClear());
     }
   }, [successMessage, errorMessage]);
+  // http://localhost:3000/admin/login
   return (
-    <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center p-4">
+    <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center py-8 px-4">
       <div className=" md:w-[80%] w-full lg:w-[550px] border rounded-md text-stone-900 p-2">
-        <div className="bg-white pt-7 pb-14 px-8 rounded-md">
+        <div className="bg-white pt-20 pb-20 px-8 rounded-md">
           <div className="h-[70px] flex justify-center items-center">
-            <div className="w-[180px] h-[60px] object-cover">
-              <img
-                className="w-full h-full"
-                src="http://localhost:3000/images/logo.png"
-                alt="logo"
-              />
+            <div className="w-auto h-[150px] object-contain mb-8">
+              <img className="w-full h-full" src={logo} alt="logo" />
             </div>
           </div>
           <form onSubmit={submit}>

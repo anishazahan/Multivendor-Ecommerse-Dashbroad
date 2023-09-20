@@ -49,7 +49,9 @@ const Register = () => {
     <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center p-4">
       <div className=" md:w-[80%] w-full lg:w-[550px] border rounded-md text-stone-900 p-2">
         <div className="bg-white py-7 px-8 rounded-md">
-          <h2 className="text-xl font-bold mb-3">Welcome to e-commerce</h2>
+          <h2 className="text-xl font-bold mb-3">
+            Welcome to Anisha Shop e-commerce
+          </h2>
           <p className="text-sm mb-3">
             Please register to your account and start your bussiness
           </p>

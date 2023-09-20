@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { get_sellers } from "../../store/Reducers/chatReducer";
 import { BsEmojiSmile } from "react-icons/bs";
 import toast from "react-hot-toast";
+import adminImg from "../../../assets/Frame 4 (5).png";
 
 import { socket } from "../../../utils/utils";
 import {
@@ -143,7 +144,7 @@ const ChatSeller = () => {
                   <div className="relative">
                     <img
                       className="w-[42px] h-[42px] border-green-500 border-2 max-w-[38px] p-[2px] rounded-full"
-                      src="http://localhost:3000/images/admin.jpg"
+                      src={adminImg}
                       alt=""
                     />
                     <div className="w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0"></div>
@@ -174,7 +175,7 @@ const ChatSeller = () => {
                             <div>
                               <img
                                 className="w-[38px] h-[38px] border-2 border-white rounded-full max-w-[38px] p-[3px]"
-                                src="http://localhost:3000/images/admin.jpg"
+                                src={currentSeller.image}
                                 alt=""
                               />
                             </div>
@@ -197,7 +198,7 @@ const ChatSeller = () => {
                             <div>
                               <img
                                 className="w-[38px] h-[38px] border-2 border-white rounded-full max-w-[38px] p-[3px]"
-                                src="http://localhost:3000/images/admin.jpg"
+                                src={adminImg}
                                 alt=""
                               />
                             </div>

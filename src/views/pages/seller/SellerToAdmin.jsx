@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-// import img from 'images/admin.jpg'
+import adminImg from "../../../assets/Frame 4 (5).png";
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "../../../utils/utils";
 import {
@@ -64,8 +64,8 @@ const SellerToAdmin = () => {
                 <div className="relative">
                   <img
                     className="w-[42px] h-[42px] border-green-500 border-2 max-w-[42px] p-[2px] rounded-full"
-                    src="http://localhost:3000/images/admin.jpg"
-                    alt=""
+                    src={adminImg}
+                    alt="admin"
                   />
                   {activeAdmin && (
                     <div className="w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0"></div>
@@ -96,12 +96,12 @@ const SellerToAdmin = () => {
                             {userInfo.role === "admin" ? (
                               <img
                                 className="w-[45px] h-[45px] rounded-full overflow-hidden"
-                                src="http://localhost:3000/images/admin.jpg"
-                                alt=""
+                                src={adminImg}
+                                alt="admin"
                               />
                             ) : (
                               <img
-                                className="w-[45px] h-[45px] rounded-full overflow-hidden"
+                                className="w-[45px] h-[45px]object contain  rounded-full overflow-hidden"
                                 src={userInfo.image}
                                 alt=""
                               />
@@ -127,8 +127,8 @@ const SellerToAdmin = () => {
                           <div>
                             <img
                               className="w-[38px] h-[38px] border-2 border-gray-100 rounded-full max-w-[38px] p-[3px]"
-                              src="http://localhost:3000/images/admin.jpg"
-                              alt=""
+                              src={adminImg}
+                              alt="admin"
                             />
                           </div>
                         </div>

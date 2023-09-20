@@ -45,7 +45,7 @@ const Login = () => {
     <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center p-4">
       <div className=" md:w-[80%] w-full lg:w-[550px] border rounded-md text-stone-900 p-2">
         <div className="bg-white py-7 px-8 rounded-md">
-          <h2 className="text-xl font-bold mb-3">Welcome to e-commerce</h2>
+          <h2 className="text-xl font-bold mb-3">Welcome to Anisha shop</h2>
           <p className="text-sm mb-3">
             Please register to your account and start your bussiness
           </p>
@@ -103,23 +103,23 @@ const Login = () => {
               <div className="w-[45%] bg-slate-300 h-[1px]"></div>
             </div>
             <div className="flex justify-center items-center gap-3">
-              <div className="w-[35px] h-[35px] flex rounded-md bg-orange-700 shadow-lg hover:shadow-orange-700/50 justify-center cursor-pointer items-center overflow-hidden">
-                <span>
+              <div className="w-[35px] text-white h-[35px] flex rounded-md bg-orange-700 shadow-lg hover:shadow-orange-700/50 justify-center cursor-pointer items-center overflow-hidden">
+                <span className="text-white">
                   <AiOutlineGooglePlus />
                 </span>
               </div>
               <div className="w-[35px] h-[35px] flex rounded-md bg-indigo-700 shadow-lg hover:shadow-indigo-700/50 justify-center cursor-pointer items-center overflow-hidden">
-                <span>
+                <span className="text-white">
                   <FiFacebook />
                 </span>
               </div>
               <div className="w-[35px] h-[35px] flex rounded-md bg-cyan-700 shadow-lg hover:shadow-cyan-700/50 justify-center cursor-pointer items-center overflow-hidden">
-                <span>
+                <span className="text-white">
                   <CiTwitter />
                 </span>
               </div>
               <div className="w-[35px] h-[35px] flex rounded-md bg-purple-700 shadow-lg hover:shadow-purple-700/50 justify-center cursor-pointer items-center overflow-hidden">
-                <span>
+                <span className="text-white">
                   <AiOutlineGithub />
                 </span>
               </div>

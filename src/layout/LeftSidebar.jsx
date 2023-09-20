@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getNavs } from "../NavigationMenu/index";
+import logo from "../assets/Frame 4 (4).png";
 
 import { BiLogInCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
@@ -32,13 +33,9 @@ const LeftSidebar = ({ showSidebar, setShowSidebar }) => {
         ${showSidebar ? "left-0" : "-left-[260px] lg:left-0"}
         `}
       >
-        <div className="h-[70px] flex justify-center items-center">
-          <Link to="/" className="w-[180px] h-[50px]">
-            <img
-              className="w-full h-full"
-              src="http://localhost:3000/images/logo.png"
-              alt=""
-            />
+        <div className="h-[70px] flex justify-center items-center pt-16 pb-9">
+          <Link to="/" className="w-auto h-[150px]">
+            <img className="w-full h-full object-contain" src={logo} alt="" />
           </Link>
         </div>
         <div className="px-[16px] mt-5">

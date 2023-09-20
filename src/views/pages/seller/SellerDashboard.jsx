@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import Chart from "react-apexcharts";
 import customer from "../../../assets/error.png";
 import { useSelector, useDispatch } from "react-redux";
+import deafultCustomerImg from "../../../assets/admin.jpg";
 
 import moment from "moment";
 import { get_seller_dashboard_index_data } from "../../../Store/Reducers/dashboardIndexReducer";
@@ -176,10 +177,10 @@ const SellerDashboard = () => {
               </Link>
             </div>
             <div className="flex flex-col gap-2 pt-6 text-slate-800">
-              <ol className="relative border-1 border-slate-600 ml-4">
+              <ol className="relative border-1 border-slate-300 ml-4">
                 {recentMessage.map((m, i) => (
                   <li key={i} className="mb-3 ml-6">
-                    <div className="flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
+                    <div className="flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] bg-purple-200 rounded-full z-10">
                       {m.senderId === userInfo._id ? (
                         <img
                           className="w-full rounded-full h-full shadow-lg"
@@ -189,12 +190,12 @@ const SellerDashboard = () => {
                       ) : (
                         <img
                           className="w-full rounded-full h-full shadow-lg"
-                          src={customer}
+                          src={deafultCustomerImg}
                           alt=""
                         />
                       )}
                     </div>
-                    <div className="p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm">
+                    <div className="p-3 bg-slate-200 rounded-lg border border-slate-200 shadow-sm">
                       <div className="flex justify-between items-center mb-2">
                         <Link className="text-md font-normal">
                           {m.senderName}
@@ -203,7 +204,7 @@ const SellerDashboard = () => {
                           {moment(m.createdAt).startOf("hour").fromNow()}
                         </time>
                       </div>
-                      <div className="p-2 text-xs font-normal bg-slate-700 rounded-lg border border-slate-800">
+                      <div className="p-2 text-xs font-normal bg-white shadow rounded-lg border border-slate-200">
                         {m.message}
                       </div>
                     </div>

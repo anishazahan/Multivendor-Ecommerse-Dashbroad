@@ -14,6 +14,8 @@ import {
   send_message,
   updateMessage,
 } from "../../../Store/Reducers/chatReducer";
+import adminImg from "../../../assets/Frame 4 (5).png";
+import deafultCustomerImg from "../../../assets/admin.jpg";
 
 const SellerToCustomer = () => {
   const scrollRef = useRef();
@@ -109,12 +111,13 @@ const SellerToCustomer = () => {
                 <Link
                   key={i}
                   to={`/seller/dashboard/chat-customer/${c.fdId}`}
-                  className={`h-[60px] flex justify-start gap-2 items-center text-slate-800 px-2 py-2 rounded-sm cursor-pointer bg-slate-100`}
+                  className={`h-[60px] flex justify-start gap-2 items-center text-slate-800 px-2 py-2 rounded-sm cursor-pointer border shadow`}
                 >
                   <div className="relative">
                     <img
                       className="w-[38px] h-[38px] border-white border-2 max-w-[38px] p-[2px] rounded-full"
-                      src="http://localhost:3001/images/admin.jpg"
+                      // customer img
+                      src={deafultCustomerImg}
                       alt=""
                     />
                     {activeCustomer.some((a) => a.customerId === c.fdId) && (
@@ -137,8 +140,8 @@ const SellerToCustomer = () => {
                   <div className="relative">
                     <img
                       className="w-[42px] h-[42px] border-green-500 border-2 max-w-[42px] p-[2px] rounded-full"
-                      src="http://localhost:3001/images/admin.jpg"
-                      alt=""
+                      src={deafultCustomerImg}
+                      alt="customer"
                     />
                     {activeCustomer.some(
                       (a) => a.customerId === currentCustomer._id
@@ -175,11 +178,11 @@ const SellerToCustomer = () => {
                             <div>
                               <img
                                 className="w-[38px] h-[38px] border-2 border-white rounded-full max-w-[38px] p-[3px]"
-                                src="http://localhost:3001/images/admin.jpg"
+                                src={deafultCustomerImg}
                                 alt=""
                               />
                             </div>
-                            <div className="flex justify-center items-start flex-col w-full bg-orange-500 shadow-lg shadow-orange-500/50 text-slate-800 py-1 px-2 rounded-sm">
+                            <div className="flex justify-center items-start flex-col w-full bg-primary shadow-lg shadow-orange-500/50 text-slate-100 py-1 px-2 rounded-sm">
                               <span>{m.message}</span>
                             </div>
                           </div>
@@ -199,7 +202,7 @@ const SellerToCustomer = () => {
                             <div>
                               <img
                                 className="w-[38px] h-[38px] border-2 border-white rounded-full max-w-[38px] p-[3px]"
-                                src="http://localhost:3001/images/admin.jpg"
+                                src={userInfo.image}
                                 alt=""
                               />
                             </div>
@@ -223,7 +226,7 @@ const SellerToCustomer = () => {
                 readOnly={customerId ? false : true}
                 onChange={(e) => setText(e.target.value)}
                 value={text}
-                className="w-full flex justify-between px-2 border border-slate-200 items-center py-[5px] focus:border-blue-500 rounded-md outline-none bg-transparent text-[#d0d2d6]"
+                className="w-full flex justify-between px-2 border border-slate-200 items-center py-[5px] focus:border-blue-500 rounded-md outline-none bg-transparent text-slate-700"
                 type="text"
                 placeholder="input your message"
               />
