@@ -15,17 +15,17 @@ root.render(
     <Provider store={store}>
       <Suspense
         fallback={
-        <div className="h-[100vh] w-full flex justify-center items-center">
-          <div class="loader">
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
+          <div className="h-[100vh] w-full flex justify-center items-center">
+            <div className="loader">
+              <div className="loader-square"></div>
+              <div className="loader-square"></div>
+              <div className="loader-square"></div>
+              <div className="loader-square"></div>
+              <div className="loader-square"></div>
+              <div className="loader-square"></div>
+              <div className="loader-square"></div>
+            </div>
           </div>
-        </div>
         }
       >
         <App />
