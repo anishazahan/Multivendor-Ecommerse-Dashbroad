@@ -8,5 +8,6 @@ export const overrideStyle = {
   alignItems: "center",
 };
 
-export const socket = io("https://multivendor-backend-eight.vercel.app");
+// export const socket = io("https://multivendor-backend-eight.vercel.app");
+export const socket = io("https://multivendor-ecommerce-backend.onrender.com");
 // export const socket = io("http://localhost:5000");
