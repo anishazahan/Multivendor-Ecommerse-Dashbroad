@@ -91,7 +91,7 @@ const ChatSeller = () => {
   }, [seller_admin_message]);
 
   return (
-    <div className="px-2 lg:px-7 py-5">
+    <div className="px-2 lg:px-5 py-2">
       <div className="w-full bg-white shadow px-4 py-4 rounded-md h-[calc(100vh-140px)]">
         <div className="flex w-full h-full relative">
           <div
