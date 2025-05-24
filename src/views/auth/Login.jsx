@@ -5,6 +5,7 @@ import { FiFacebook } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
+import { seller_login } from "../../Store/Reducers/authReducer";
 import { overrideStyle } from "../../utils/utils";
 
 const Login = () => {
@@ -38,9 +39,18 @@ const Login = () => {
       role: "seller",
       email: "anishazahan13@gmail.com",
     };
+
+    const loginData = {
+      email: "anishazahan13@gmail.com",
+      password: 123456,
+    };
     dispatch({ type: "auth/loginSuccess", payload: adminCredentials });
     navigate("/");
   };
+
+  useEffect(() => {
+    dispatch(seller_login(loginData));
+  }, []);
   return (
     <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center p-4">
       <div className=" md:w-[80%] w-full lg:w-[550px] border rounded-md text-stone-900 p-2">

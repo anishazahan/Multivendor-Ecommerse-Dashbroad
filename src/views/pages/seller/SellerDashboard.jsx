@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import deafultCustomerImg from "../../../assets/admin.jpg";
 
 import moment from "moment";
+import { seller_login } from "../../../Store/Reducers/authReducer";
 import { get_seller_dashboard_index_data } from "../../../Store/Reducers/dashboardIndexReducer";
 const SellerDashboard = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -90,11 +91,19 @@ const SellerDashboard = () => {
       role: "seller",
       email: "anishazahan13@gmail.com",
     };
+    const loginData = {
+      email: "anishazahan13@gmail.com",
+      password: 123456,
+    };
+
     dispatch({ type: "auth/loginSuccess", payload: adminCredentials });
   };
 
   useEffect(() => {
     dispatch(get_seller_dashboard_index_data());
+  }, []);
+  useEffect(() => {
+    dispatch(seller_login(loginData));
   }, []);
   return (
     <div className="px-2 md:px-5 py-2">
