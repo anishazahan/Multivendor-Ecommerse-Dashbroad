@@ -46,11 +46,11 @@ import { Navigate } from "react-router-dom";
 const ProtectRoute = ({ route, children }) => {
   const { role } = useSelector((state) => state.auth);
 
-  if (route.role && role !== route.role) {
-    return <Navigate to="/login" replace />;
+  if (role) {
+    return <Suspense fallback={null}>{children}</Suspense>;
   }
 
-  return <Suspense fallback={null}>{children}</Suspense>;
+  return <Navigate to="/login" replace />;
 };
 
 export default ProtectRoute;

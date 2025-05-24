@@ -1,12 +1,9 @@
 import { lazy } from "react";
+import Login from "../../views/auth/Login";
 
-const SellerDashboard = lazy(() =>
-  import("../../views/pages/seller/SellerDashboard")
-);
+const SellerDashboard = lazy(() => import("../../views/pages/seller/SellerDashboard"));
 const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
-const OrderDetails = lazy(() =>
-  import("../../views/pages/seller/OrderDetails")
-);
+const OrderDetails = lazy(() => import("../../views/pages/seller/OrderDetails"));
 const Profile = lazy(() => import("../../views/pages/seller/Profile"));
 const Orders = lazy(() => import("../../views/pages/seller/Orders"));
 const Payments = lazy(() => import("../../views/pages/seller/Payments"));
@@ -14,26 +11,24 @@ const Products = lazy(() => import("../../views/pages/seller/Products"));
 const Pending = lazy(() => import("../../views/Pending"));
 const Deactive = lazy(() => import("../../views/Deactive"));
 const EditProduct = lazy(() => import("../../views/pages/seller/EditProduct"));
-const SellerToCustomer = lazy(() =>
-  import("../../views/pages/seller/SellerToCustomer")
-);
-const SellerToAdmin = lazy(() =>
-  import("../../views/pages/seller/SellerToAdmin")
-);
-const DiscountProducts = lazy(() =>
-  import("../../views/pages/seller/DiscountProducts")
-);
+const SellerToCustomer = lazy(() => import("../../views/pages/seller/SellerToCustomer"));
+const SellerToAdmin = lazy(() => import("../../views/pages/seller/SellerToAdmin"));
+const DiscountProducts = lazy(() => import("../../views/pages/seller/DiscountProducts"));
 
 export const sellerRoutes = [
+  // {
+  //   path: "/seller/account-pending",
+  //   element: <Pending />,
+  //   ability: "seller",
+  // },
+  // {
+  //   path: "/seller/account-deactive",
+  //   element: <Deactive />,
+  //   ability: "seller",
+  // },
   {
-    path: "/seller/account-pending",
-    element: <Pending />,
-    ability: "seller",
-  },
-  {
-    path: "/seller/account-deactive",
-    element: <Deactive />,
-    ability: "seller",
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "/seller/dashboard",
