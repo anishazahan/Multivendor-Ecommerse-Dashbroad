@@ -9,5 +9,5 @@ export const overrideStyle = {
 };
 
 // export const socket = io("https://multivendor-backend-eight.vercel.app");
-export const socket = io("https://multivendor-ecommerce-backend.onrender.com");
+export const socket = io("https://multivendor-ecommerce-backend.onrender.com") || io("http://localhost:8000");
 // export const socket = io("http://localhost:5000");

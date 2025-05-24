@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { admin_login } from "../../Store/Reducers/authReducer";
-import { PropagateLoader } from "react-spinners";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { overrideStyle } from "../../utils/utils";
+import { useNavigate } from "react-router-dom";
+import { PropagateLoader } from "react-spinners";
 import logo from "../../assets/Frame 4 (4).png";
-
-import {
-  messageClear,
-  // seller_register,
-} from "../../Store/Reducers/authReducer.js";
+import { overrideStyle } from "../../utils/utils";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loader, errorMessage, successMessage } = useSelector(
-    (state) => state.auth
-  );
+  const { loader, errorMessage, successMessage } = useSelector((state) => state.auth);
   const [state, setSatate] = useState({
     email: "",
     password: "",
@@ -28,21 +19,33 @@ const AdminLogin = () => {
       [e.target.name]: e.target.value,
     });
   };
+  // const submit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(admin_login(state));
+  // };
+  // useEffect(() => {
+  //   if (successMessage) {
+  //     toast.success(successMessage);
+  //     dispatch(messageClear());
+  //     navigate("/");
+  //   }
+  //   if (errorMessage) {
+  //     toast.error(errorMessage);
+  //     dispatch(messageClear());
+  //   }
+  // }, [successMessage, errorMessage]);
+
   const submit = (e) => {
     e.preventDefault();
-    dispatch(admin_login(state));
+    const adminCredentials = {
+      _id: "64f9b9611c63f9cf42884184",
+      name: "anisha",
+      role: "admin",
+      email: "anishazahan12@gmail.com",
+    };
+    dispatch({ type: "auth/loginSuccess", payload: adminCredentials });
+    navigate("/");
   };
-  useEffect(() => {
-    if (successMessage) {
-      toast.success(successMessage);
-      dispatch(messageClear());
-      navigate("/");
-    }
-    if (errorMessage) {
-      toast.error(errorMessage);
-      dispatch(messageClear());
-    }
-  }, [successMessage, errorMessage]);
   // http://localhost:3000/admin/login
   return (
     <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center py-8 px-4">
@@ -85,11 +88,7 @@ const AdminLogin = () => {
               disabled={loader ? true : false}
               className="bg-primary w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3"
             >
-              {loader ? (
-                <PropagateLoader color="#fff" cssOverride={overrideStyle} />
-              ) : (
-                "Signup"
-              )}
+              {loader ? <PropagateLoader color="#fff" cssOverride={overrideStyle} /> : "Signup"}
             </button>
           </form>
         </div>
