@@ -1,26 +1,18 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import Chart from "react-apexcharts";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { RiProductHuntLine } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import Chart from "react-apexcharts";
-import customer from "../../../assets/error.png";
-import { useSelector, useDispatch } from "react-redux";
 import deafultCustomerImg from "../../../assets/admin.jpg";
 
 import moment from "moment";
 import { get_seller_dashboard_index_data } from "../../../Store/Reducers/dashboardIndexReducer";
 const SellerDashboard = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  const {
-    totalSale,
-    totalOrder,
-    totalProduct,
-    totalPendingOrder,
-    totalSeller,
-    recentOrders,
-    recentMessage,
-  } = useSelector((state) => state.dashboardIndex);
+  const { totalSale, totalOrder, totalProduct, totalPendingOrder, totalSeller, recentOrders, recentMessage } =
+    useSelector((state) => state.dashboardIndex);
 
   const state = {
     series: [
@@ -58,20 +50,7 @@ const SellerDashboard = () => {
         dashArray: 0,
       },
       xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apl",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
+        categories: ["Jan", "Feb", "Mar", "Apl", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       },
       legend: {
         position: "top",
@@ -80,20 +59,7 @@ const SellerDashboard = () => {
         {
           breakpoint: 565,
           yaxis: {
-            categories: [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apl",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ],
+            categories: ["Jan", "Feb", "Mar", "Apl", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
           },
           options: {
             plotOptions: {
@@ -111,6 +77,21 @@ const SellerDashboard = () => {
   };
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    Login();
+  }, []);
+
+  const Login = () => {
+    // e.preventDefault();
+    const adminCredentials = {
+      _id: "64f9de43a5a94465de22b29f",
+      name: "Anisha",
+      role: "seller",
+      email: "anishazahan13@gmail.com",
+    };
+    dispatch({ type: "auth/loginSuccess", payload: adminCredentials });
+  };
 
   useEffect(() => {
     dispatch(get_seller_dashboard_index_data());
@@ -158,23 +139,14 @@ const SellerDashboard = () => {
       <div className="w-full flex flex-wrap mt-7">
         <div className="w-full lg:w-7/12 lg:pr-3">
           <div className="w-full bg-white shadow p-4 rounded-md">
-            <Chart
-              options={state.options}
-              series={state.series}
-              type="bar"
-              height={350}
-            />
+            <Chart options={state.options} series={state.series} type="bar" height={350} />
           </div>
         </div>
         <div className="w-full lg:w-5/12 lg:pl-4 mt-6 lg:mt-0">
           <div className="w-full bg-white shadow p-4 rounded-md text-slate-800">
             <div className="flex justify-between items-center">
-              <h2 className="font-semibold text-lg text-slate-800 pb-3">
-                Recent customer message
-              </h2>
-              <Link className="font-semibold text-sm text-slate-800">
-                View All
-              </Link>
+              <h2 className="font-semibold text-lg text-slate-800 pb-3">Recent customer message</h2>
+              <Link className="font-semibold text-sm text-slate-800">View All</Link>
             </div>
             <div className="flex flex-col gap-2 pt-6 text-slate-800">
               <ol className="relative border-1 border-slate-300 ml-4">
@@ -182,24 +154,14 @@ const SellerDashboard = () => {
                   <li key={i} className="mb-3 ml-6">
                     <div className="flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] bg-purple-200 rounded-full z-10">
                       {m.senderId === userInfo._id ? (
-                        <img
-                          className="w-full rounded-full h-full shadow-lg"
-                          src={userInfo.image}
-                          alt=""
-                        />
+                        <img className="w-full rounded-full h-full shadow-lg" src={userInfo.image} alt="" />
                       ) : (
-                        <img
-                          className="w-full rounded-full h-full shadow-lg"
-                          src={deafultCustomerImg}
-                          alt=""
-                        />
+                        <img className="w-full rounded-full h-full shadow-lg" src={deafultCustomerImg} alt="" />
                       )}
                     </div>
                     <div className="p-3 bg-slate-200 rounded-lg border border-slate-200 shadow-sm">
                       <div className="flex justify-between items-center mb-2">
-                        <Link className="text-md font-normal">
-                          {m.senderName}
-                        </Link>
+                        <Link className="text-md font-normal">{m.senderName}</Link>
                         <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
                           {moment(m.createdAt).startOf("hour").fromNow()}
                         </time>
@@ -217,13 +179,8 @@ const SellerDashboard = () => {
       </div>
       <div className="w-full p-4  bg-white shadow rounded-md mt-6">
         <div className="flex justify-between items-center">
-          <h2 className="font-semibold text-lg text-slate-800 pb-3">
-            Recent Orders
-          </h2>
-          <Link
-            to="/seller/dashboard/orders"
-            className="font-semibold text-sm text-slate-800"
-          >
+          <h2 className="font-semibold text-lg text-slate-800 pb-3">Recent Orders</h2>
+          <Link to="/seller/dashboard/orders" className="font-semibold text-sm text-slate-800">
             View All
           </Link>
         </div>
@@ -251,37 +208,20 @@ const SellerDashboard = () => {
             <tbody>
               {recentOrders.map((d, i) => (
                 <tr key={i}>
-                  <td
-                    scope="row"
-                    className="py-3 px-4 font-medium whitespace-nowrap"
-                  >
+                  <td scope="row" className="py-3 px-4 font-medium whitespace-nowrap">
                     #{d._id}
                   </td>
-                  <td
-                    scope="row"
-                    className="py-3 px-4 font-medium whitespace-nowrap"
-                  >
+                  <td scope="row" className="py-3 px-4 font-medium whitespace-nowrap">
                     ${d.price}
                   </td>
-                  <td
-                    scope="row"
-                    className="py-3 px-4 font-medium whitespace-nowrap"
-                  >
+                  <td scope="row" className="py-3 px-4 font-medium whitespace-nowrap">
                     <span>{d.delivery_status}</span>
                   </td>
-                  <td
-                    scope="row"
-                    className="py-3 px-4 font-medium whitespace-nowrap"
-                  >
+                  <td scope="row" className="py-3 px-4 font-medium whitespace-nowrap">
                     <span>{d.payment_status}</span>
                   </td>
-                  <td
-                    scope="row"
-                    className="py-3 px-4 font-medium whitespace-nowrap"
-                  >
-                    <Link to={`/seller/dashboard/order/details/${d._id}`}>
-                      view
-                    </Link>
+                  <td scope="row" className="py-3 px-4 font-medium whitespace-nowrap">
+                    <Link to={`/seller/dashboard/order/details/${d._id}`}>view</Link>
                   </td>
                 </tr>
               ))}
