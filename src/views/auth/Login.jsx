@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineGithub, AiOutlineGooglePlus } from "react-icons/ai";
 import { CiTwitter } from "react-icons/ci";
 import { FiFacebook } from "react-icons/fi";
@@ -26,20 +26,12 @@ const Login = () => {
   //   // console.log(state);
   //   dispatch(seller_login(state));
   // };
-  // useEffect(() => {
-  //   if (successMessage) {
-  //     toast.success(successMessage);
-  //     dispatch(messageClear());
-  //     navigate("/");
-  //   }
-  //   if (errorMessage) {
-  //     toast.error(errorMessage);
-  //     dispatch(messageClear());
-  //   }
-  // }, [successMessage, errorMessage]);
+  useEffect(() => {
+    submit();
+  }, [successMessage, errorMessage]);
 
-  const submit = (e) => {
-    e.preventDefault();
+  const submit = () => {
+    // e.preventDefault();
     const adminCredentials = {
       _id: "64f9de43a5a94465de22b29f",
       name: "Anisha",
