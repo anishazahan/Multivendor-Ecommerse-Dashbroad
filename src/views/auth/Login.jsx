@@ -41,10 +41,10 @@ const Login = () => {
   const submit = (e) => {
     e.preventDefault();
     const adminCredentials = {
-      _id: "64f9b9611c63f9cf42884184",
-      name: "anisha",
-      role: "admin",
-      email: "anishazahan12@gmail.com",
+      _id: "64f9de43a5a94465de22b29f",
+      name: "Anisha",
+      role: "seller",
+      email: "anishazahan13@gmail.com",
     };
     dispatch({ type: "auth/loginSuccess", payload: adminCredentials });
     navigate("/");
