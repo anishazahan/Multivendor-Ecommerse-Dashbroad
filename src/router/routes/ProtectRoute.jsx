@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 // const ProtectRoute = ({ route, children }) => {
 //   const { role, userInfo } = useSelector((state) => state.auth);
 //   if (role) {
@@ -40,8 +39,17 @@ import { Suspense } from "react";
 //     return <Navigate to="/login" replace />;
 //   }
 // };
+import { Suspense } from "react";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
-const ProtectRoute = ({ children }) => {
+const ProtectRoute = ({ route, children }) => {
+  const { role } = useSelector((state) => state.auth);
+
+  if (route.role && role !== route.role) {
+    return <Navigate to="/login" replace />;
+  }
+
   return <Suspense fallback={null}>{children}</Suspense>;
 };
 
