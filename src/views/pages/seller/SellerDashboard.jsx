@@ -83,6 +83,11 @@ const SellerDashboard = () => {
     Login();
   }, []);
 
+  const loginData = {
+    email: "anishazahan13@gmail.com",
+    password: 123456,
+  };
+
   const Login = () => {
     // e.preventDefault();
     const adminCredentials = {
@@ -90,10 +95,6 @@ const SellerDashboard = () => {
       name: "Anisha",
       role: "seller",
       email: "anishazahan13@gmail.com",
-    };
-    const loginData = {
-      email: "anishazahan13@gmail.com",
-      password: 123456,
     };
 
     dispatch({ type: "auth/loginSuccess", payload: adminCredentials });

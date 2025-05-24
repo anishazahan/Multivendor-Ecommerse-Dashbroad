@@ -31,6 +31,11 @@ const Login = () => {
     submit();
   }, [successMessage, errorMessage]);
 
+  const loginData = {
+    email: "anishazahan13@gmail.com",
+    password: 123456,
+  };
+
   const submit = () => {
     // e.preventDefault();
     const adminCredentials = {
@@ -40,10 +45,6 @@ const Login = () => {
       email: "anishazahan13@gmail.com",
     };
 
-    const loginData = {
-      email: "anishazahan13@gmail.com",
-      password: 123456,
-    };
     dispatch({ type: "auth/loginSuccess", payload: adminCredentials });
     navigate("/");
   };
