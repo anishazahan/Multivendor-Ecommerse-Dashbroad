@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { AiOutlineGithub, AiOutlineGooglePlus } from "react-icons/ai";
 import { CiTwitter } from "react-icons/ci";
 import { FiFacebook } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
-import { seller_login } from "../../Store/Reducers/authReducer";
+import { messageClear, seller_login } from "../../Store/Reducers/authReducer";
 import { overrideStyle } from "../../utils/utils";
 
 const Login = () => {
@@ -22,36 +23,22 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
-  // const submit = (e) => {
-  //   e.preventDefault();
-  //   // console.log(state);
-  //   dispatch(seller_login(state));
-  // };
+  const submit = (e) => {
+    e.preventDefault();
+    // console.log(state);
+    dispatch(seller_login(state));
+  };
   useEffect(() => {
-    submit();
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+      navigate("/");
+    }
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
   }, [successMessage, errorMessage]);
-
-  const loginData = {
-    email: "anishazahan13@gmail.com",
-    password: 123456,
-  };
-
-  const submit = () => {
-    // e.preventDefault();
-    const adminCredentials = {
-      _id: "64f9de43a5a94465de22b29f",
-      name: "Anisha",
-      role: "seller",
-      email: "anishazahan13@gmail.com",
-    };
-
-    dispatch({ type: "auth/loginSuccess", payload: adminCredentials });
-    navigate("/");
-  };
-
-  useEffect(() => {
-    dispatch(seller_login(loginData));
-  }, []);
   return (
     <div className="min-w-screen min-h-screen bg-gray-100 flex justify-center items-center p-4">
       <div className=" md:w-[80%] w-full lg:w-[550px] border rounded-md text-stone-900 p-2">
