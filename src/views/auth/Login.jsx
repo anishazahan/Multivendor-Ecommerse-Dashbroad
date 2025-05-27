@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { AiOutlineGooglePlus, AiOutlineGithub } from "react-icons/ai";
-import { FiFacebook } from "react-icons/fi";
+import { AiOutlineGithub, AiOutlineGooglePlus } from "react-icons/ai";
 import { CiTwitter } from "react-icons/ci";
-import { PropagateLoader } from "react-spinners";
+import { FiFacebook } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { PropagateLoader } from "react-spinners";
 import { messageClear, seller_login } from "../../Store/Reducers/authReducer";
 import { overrideStyle } from "../../utils/utils";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loader, errorMessage, successMessage } = useSelector(
-    (state) => state.auth
-  );
+  const { loader, errorMessage, successMessage } = useSelector((state) => state.auth);
   const [state, setSatate] = useState({
     email: "",
     password: "",
@@ -46,9 +44,7 @@ const Login = () => {
       <div className=" md:w-[80%] w-full lg:w-[550px] border rounded-md text-stone-900 p-2">
         <div className="bg-white py-7 px-8 rounded-md">
           <h2 className="text-xl font-bold mb-3">Welcome to e-commerce</h2>
-          <p className="text-sm mb-3">
-            Please register to your account and start your bussiness
-          </p>
+          <p className="text-sm mb-3">Please register to your account and start your bussiness</p>
           <form onSubmit={submit}>
             <div className="flex flex-col w-full gap-1 mb-3">
               <label htmlFor="email">Email</label>
@@ -81,17 +77,13 @@ const Login = () => {
               disabled={loader ? true : false}
               className="bg-primary w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3"
             >
-              {loader ? (
-                <PropagateLoader color="#fff" cssOverride={overrideStyle} />
-              ) : (
-                "Signup"
-              )}
+              {loader ? <PropagateLoader color="#fff" cssOverride={overrideStyle} /> : "Signup"}
             </button>
             <div className="flex items-center mb-3 gap-3 justify-center mt-5">
               <p>
                 New to this application ?{" "}
                 <Link className="text-primary underline" to="/register">
-                  SignUp
+                  Login
                 </Link>
               </p>
             </div>
