@@ -6,6 +6,8 @@ const SellerDashboard = lazy(() =>
   import("../../views/pages/seller/SellerDashboard")
 );
 const AddProduct = lazy(() => import("../../views/pages/seller/AddProduct"));
+const Deactive = lazy(() => import("../../views/Deactive"));
+const Pending = lazy(() => import("../../views/pages/seller/Pending"));
 const Payments = lazy(() => import("../../views/pages/seller/Payments"));
 const Products = lazy(() => import("../../views/pages/seller/Products"));
 const SellerToCustomer = lazy(() =>
@@ -19,17 +21,26 @@ const DiscountProducts = lazy(() =>
 );
 
 export const sellerRoutes = [
+  // {
+  //   path: "/",
+  //   element: <Home />,
+  //   ability: ["admin", "seller"],
+  // },
   {
-    path: "/",
-    element: <Home />,
-    ability: ["admin", "seller"],
+    path: "/seller/account-pending",
+    element: <Pending />,
+    ability: "seller",
+  },
+  {
+    path: "/seller/account-deactive",
+    element: <Deactive />,
+    ability: "seller",
   },
   {
     path: "/seller/dashboard",
     element: <SellerDashboard />,
-    // role: "seller",
-    // status: "active",
-    ability: ["seller"],
+    role: "seller",
+    status: "active",
   },
   {
     path: "/seller/dashboard/add-product",
